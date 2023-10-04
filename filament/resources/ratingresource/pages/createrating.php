@@ -7,7 +7,8 @@ namespace Modules\Rating\Filament\Resources\RatingResource\Pages;
 use Filament\Resources\Pages\CreateRecord;
 use Modules\Rating\Filament\Resources\RatingResource;
 
-class CreateRating extends CreateRecord {
+class CreateRating extends CreateRecord
+{
     protected static string $resource = RatingResource::class;
 
     // public static function getResource(): string {
