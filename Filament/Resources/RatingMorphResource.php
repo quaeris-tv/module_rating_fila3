@@ -11,18 +11,21 @@ use Modules\Rating\Filament\Resources\RatingMorphResource\Pages;
 use Modules\Rating\Models\RatingMorph;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
-class RatingMorphResource extends XotBaseResource {
+class RatingMorphResource extends XotBaseResource
+{
     protected static ?string $model = RatingMorph::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    public static function form(Form $form): Form {
+    public static function form(Form $form): Form
+    {
         return $form
             ->schema([
             ]);
     }
 
-    public static function table(Table $table): Table {
+    public static function table(Table $table): Table
+    {
         return $table
             ->columns([
             ])
@@ -36,12 +39,14 @@ class RatingMorphResource extends XotBaseResource {
             ]);
     }
 
-    public static function getRelations(): array {
+    public static function getRelations(): array
+    {
         return [
         ];
     }
 
-    public static function getPages(): array {
+    public static function getPages(): array
+    {
         return [
             'index' => Pages\ListRatingMorphs::route('/'),
             'create' => Pages\CreateRatingMorph::route('/create'),

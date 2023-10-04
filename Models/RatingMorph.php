@@ -6,7 +6,8 @@ namespace Modules\Rating\Models;
 
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class RatingMorph extends BaseMorphPivot {
+class RatingMorph extends BaseMorphPivot
+{
     /**
      * @var string[]
      */
@@ -20,7 +21,8 @@ class RatingMorph extends BaseMorphPivot {
     ];
     // -------- RELATIONSHIP -----------
 
-    public function rating(): HasOne {
+    public function rating(): HasOne
+    {
         return $this->hasOne(Rating::class);
     }
 }
