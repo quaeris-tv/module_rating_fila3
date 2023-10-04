@@ -6,6 +6,7 @@ namespace Modules\Rating\Providers\Filament;
 
 use Modules\Xot\Providers\Filament\XotBasePanelProvider;
 
-class AdminPanelProvider extends XotBasePanelProvider {
+class AdminPanelProvider extends XotBasePanelProvider
+{
     protected string $module = 'Rating';
 }
