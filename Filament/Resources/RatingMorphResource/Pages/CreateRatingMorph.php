@@ -7,6 +7,7 @@ namespace Modules\Rating\Filament\Resources\RatingMorphResource\Pages;
 use Filament\Resources\Pages\CreateRecord;
 use Modules\Rating\Filament\Resources\RatingMorphResource;
 
-class CreateRatingMorph extends CreateRecord {
+class CreateRatingMorph extends CreateRecord
+{
     protected static string $resource = RatingMorphResource::class;
 }

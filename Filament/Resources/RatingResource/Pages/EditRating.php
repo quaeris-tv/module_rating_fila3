@@ -8,10 +8,12 @@ use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Modules\Rating\Filament\Resources\RatingResource;
 
-class EditRating extends EditRecord {
+class EditRating extends EditRecord
+{
     protected static string $resource = RatingResource::class;
 
-    protected function getActions(): array {
+    protected function getActions(): array
+    {
         return [
             Actions\DeleteAction::make(),
         ];

@@ -15,12 +15,14 @@ use Modules\Rating\Filament\Resources\RatingResource\Pages;
 use Modules\Rating\Models\Rating;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
-class RatingResource extends XotBaseResource {
+class RatingResource extends XotBaseResource
+{
     protected static ?string $model = Rating::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    public static function form(Form $form): Form {
+    public static function form(Form $form): Form
+    {
         return $form
             ->schema([
                 TextInput::make('extra_attributes.type'),
@@ -32,7 +34,8 @@ class RatingResource extends XotBaseResource {
             ]);
     }
 
-    public static function table(Table $table): Table {
+    public static function table(Table $table): Table
+    {
         return $table
             ->columns([
                 TextColumn::make('extra_attributes.type')->label('type'),
@@ -51,12 +54,14 @@ class RatingResource extends XotBaseResource {
             ]);
     }
 
-    public static function getRelations(): array {
+    public static function getRelations(): array
+    {
         return [
         ];
     }
 
-    public static function getPages(): array {
+    public static function getPages(): array
+    {
         return [
             'index' => Pages\ListRatings::route('/'),
             'create' => Pages\CreateRating::route('/create'),

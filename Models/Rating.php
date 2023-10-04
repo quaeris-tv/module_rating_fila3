@@ -7,7 +7,8 @@ namespace Modules\Rating\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
 
-class Rating extends BaseModel {
+class Rating extends BaseModel
+{
     protected $fillable = [
         'id',
         'extra_attributes',
@@ -20,7 +21,8 @@ class Rating extends BaseModel {
         'extra_attributes' => SchemalessAttributes::class,
     ];
 
-    public function scopeWithExtraAttributes(): Builder {
+    public function scopeWithExtraAttributes(): Builder
+    {
         return $this->extra_attributes->modelScope();
     }
 }
