@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Rating\Models;
 
-use Modules\Rating\Enums\RuleEnum;
 use Illuminate\Database\Eloquent\Builder;
+use Modules\Rating\Enums\RuleEnum;
 use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
 
 class Rating extends BaseModel
@@ -24,9 +24,9 @@ class Rating extends BaseModel
 
     public $casts = [
         'extra_attributes' => SchemalessAttributes::class,
-        'rule'=>RuleEnum::class,
+        'rule' => RuleEnum::class,
         'is_disabled' => 'boolean',
-        'is_readonly'=> 'boolean',
+        'is_readonly' => 'boolean',
     ];
 
     public function scopeWithExtraAttributes(): Builder
