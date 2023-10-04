@@ -1,10 +1,15 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 declare(strict_types=1);
 
 =======
 >>>>>>> c51c185 (.)
+=======
+declare(strict_types=1);
+
+>>>>>>> 5fff76e (Check & fix styling)
 namespace App\Providers\Filament;
 
 use Filament\Http\Middleware\Authenticate;
