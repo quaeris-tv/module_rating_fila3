@@ -5,6 +5,7 @@
     "keywords": [],
     "priority": 0,
     "providers": [
+<<<<<<< HEAD
         "Modules\\Rating\\Providers\\RatingServiceProvider",
         "Modules\\Rating\\Providers\\Filament\\AdminPanelProvider"
     ],
@@ -12,3 +13,19 @@
     "files": [],
     "requires": []
 }
+=======
+<<<<<<< HEAD
+        "Modules\\Rating\\Providers\\RatingServiceProvider"
+    ],
+    "files": []
+}
+=======
+        "Modules\\Rating\\Providers\\RatingServiceProvider",
+        "Modules\\Rating\\Providers\\Filament\\AdminPanelProvider"
+    ],
+    "aliases": [],
+    "files": [],
+    "requires": []
+}
+>>>>>>> f4b5af9 (first)
+>>>>>>> c51c185 (.)

@@ -1,7 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
+=======
+>>>>>>> c51c185 (.)
 namespace App\Providers\Filament;
 
 use Filament\Http\Middleware\Authenticate;

@@ -14,8 +14,23 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+<<<<<<< HEAD
 /*
 Route::middleware('auth:api')->get('/rating', function (Request $request) {
     return $request->user();
 });
 */
+=======
+<<<<<<< HEAD
+
+Route::middleware('auth:api')->get('/rating', function (Request $request) {
+    return $request->user();
+});
+=======
+/*
+Route::middleware('auth:api')->get('/rating', function (Request $request) {
+    return $request->user();
+});
+*/
+>>>>>>> f4b5af9 (first)
+>>>>>>> c51c185 (.)
