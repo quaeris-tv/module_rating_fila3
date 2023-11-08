@@ -16,7 +16,7 @@
                         <p class="mb-3 mb-md-0"><strong>{{ $rows->total() }}</strong> records</p>
                     </div>
                     {{-- <div>
-                    <label class="form-label me-2" for="form_sort">Sort by</label>
+                    <x-filament-forms::field-wrapper.label class="form-label me-2" for="form_sort">Sort by</label>
                     <select class="selectpicker" name="sort" id="form_sort" data-style="btn-selectpicker" title="">
                         <option value="sortBy_0">Most popular </option>
                         <option value="sortBy_1">Recommended </option>

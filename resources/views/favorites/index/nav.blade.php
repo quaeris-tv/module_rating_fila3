@@ -1,7 +1,7 @@
 <div class="col-lg-3 pt-3">
     <form class="pe-xl-3" action="favorites">
         {{-- <div class="mb-4">
-            <label class="form-label" for="form_search">Keyword</label>
+            <x-filament-forms::field-wrapper.label class="form-label" for="form_search">Keyword</label>
             <div class="input-label-absolute input-label-absolute-right">
                 <div class="label-absolute"><i class="fa fa-search"></i></div>
                 <input class="form-control pe-4" type="search" name="search" placeholder="Keywords" id="form_search">
@@ -9,22 +9,22 @@
         </div> --}}
 
         <div class="mb-4">
-            <x-input.group type="text" name="q" />
+            <x-filament::input type="text" name="q" />
         </div>
 
         <div class="mb-4">
 
-            {{-- <x-input.grouptype="select.multiple"name="media_type":options="$_panel->getMediaTypeList()"id="media_type"/> --}}
+            {{-- <x-filament::inputtype="select.multiple"name="media_type":options="$_panel->getMediaTypeList()"id="media_type"/> --}}
 
-            <label class="form-label">Inizia con</label>
+            <x-filament-forms::field-wrapper.label class="form-label">Inizia con</label>
             <x-input type="text" name="start_with" />
 
-            <label class="form-label">Escludi parola</label>
+            <x-filament-forms::field-wrapper.label class="form-label">Escludi parola</label>
             <x-input type="text" name="without" />
 
         </div>
         <div class="mb-4">
-            <label class="form-label" for="form_category">Ordina per</label>
+            <x-filament-forms::field-wrapper.label class="form-label" for="form_category">Ordina per</label>
 
             @php
                 $orders = ['desc' => 'desc', 'asc' => 'asc'];
@@ -44,48 +44,48 @@
 
         </div>
         <div class="mb-4">
-            {{-- <label class="form-label">Tag</label>
+            {{-- <x-filament-forms::field-wrapper.label class="form-label">Tag</label>
             <ul class="list-unstyled mb-0">
                 <li>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="type_0" name="type[]">
-                        <label class="form-check-label" for="type_0">Hipster</label>
+                        <x-filament-forms::field-wrapper.label class="form-check-label" for="type_0">Hipster</label>
                     </div>
                 </li>
                 <li>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="type_1" name="type[]">
-                        <label class="form-check-label" for="type_1">Music club</label>
+                        <x-filament-forms::field-wrapper.label class="form-check-label" for="type_1">Music club</label>
                     </div>
                 </li>
                 <li>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="type_2" name="type[]">
-                        <label class="form-check-label" for="type_2">Bar</label>
+                        <x-filament-forms::field-wrapper.label class="form-check-label" for="type_2">Bar</label>
                     </div>
                 </li>
                 <li>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="type_3" name="type[]">
-                        <label class="form-check-label" for="type_3">Pub</label>
+                        <x-filament-forms::field-wrapper.label class="form-check-label" for="type_3">Pub</label>
                     </div>
                 </li>
                 <li>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="type_4" name="type[]">
-                        <label class="form-check-label" for="type_4">Deli</label>
+                        <x-filament-forms::field-wrapper.label class="form-check-label" for="type_4">Deli</label>
                     </div>
                 </li>
                 <li>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="type_5" name="type[]">
-                        <label class="form-check-label" for="type_5">Bistro</label>
+                        <x-filament-forms::field-wrapper.label class="form-check-label" for="type_5">Bistro</label>
                     </div>
                 </li>
             </ul> --}}
 
 
-            {{-- <x-input.grouptype="select"name="channel":options="$_panel->getChannelsList()"/> --}}
+            {{-- <x-filament::inputtype="select"name="channel":options="$_panel->getChannelsList()"/> --}}
 
 
 
@@ -93,48 +93,48 @@
         {{-- <div class="pb-4">
             <div class="collapse" id="moreFilters">
                 <div class="mb-4">
-                    <label class="form-label">Cuisine</label>
+                    <x-filament-forms::field-wrapper.label class="form-label">Cuisine</label>
                     <ul class="list-unstyled mb-0">
                         <li>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="cuisine_0" name="cuisine[]">
-                                <label class="form-check-label" for="cuisine_0">Fusion</label>
+                                <x-filament-forms::field-wrapper.label class="form-check-label" for="cuisine_0">Fusion</label>
                             </div>
                         </li>
                         <li>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="cuisine_1" name="cuisine[]">
-                                <label class="form-check-label" for="cuisine_1">Indian</label>
+                                <x-filament-forms::field-wrapper.label class="form-check-label" for="cuisine_1">Indian</label>
                             </div>
                         </li>
                         <li>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="cuisine_2" name="cuisine[]">
-                                <label class="form-check-label" for="cuisine_2">French</label>
+                                <x-filament-forms::field-wrapper.label class="form-check-label" for="cuisine_2">French</label>
                             </div>
                         </li>
                         <li>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="cuisine_3" name="cuisine[]">
-                                <label class="form-check-label" for="cuisine_3">American</label>
+                                <x-filament-forms::field-wrapper.label class="form-check-label" for="cuisine_3">American</label>
                             </div>
                         </li>
                         <li>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="cuisine_4" name="cuisine[]">
-                                <label class="form-check-label" for="cuisine_4">Mexican</label>
+                                <x-filament-forms::field-wrapper.label class="form-check-label" for="cuisine_4">Mexican</label>
                             </div>
                         </li>
                         <li>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="cuisine_5" name="cuisine[]">
-                                <label class="form-check-label" for="cuisine_5">Other</label>
+                                <x-filament-forms::field-wrapper.label class="form-check-label" for="cuisine_5">Other</label>
                             </div>
                         </li>
                     </ul>
                 </div>
                 <div class="mb-4">
-                    <label class="form-label">Price</label>
+                    <x-filament-forms::field-wrapper.label class="form-label">Price</label>
                     <div class="text-primary" id="slider-snap"></div>
                     <div class="nouislider-values">
                         <div class="min">From $<span id="slider-snap-value-from"></span></div>
@@ -144,18 +144,18 @@
                     <input type="hidden" name="priceto" id="slider-snap-input-to" value="110">
                 </div>
                 <div class="mb-4">
-                    <label class="form-label">Vegetarians</label>
+                    <x-filament-forms::field-wrapper.label class="form-label">Vegetarians</label>
                     <ul class="list-unstyled mb-0">
                         <li>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="vegetarians_0" name="vegetarians">
-                                <label class="form-check-label" for="vegetarians_0">All</label>
+                                <x-filament-forms::field-wrapper.label class="form-check-label" for="vegetarians_0">All</label>
                             </div>
                         </li>
                         <li>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="vegetarians_1" name="vegetarians">
-                                <label class="form-check-label" for="vegetarians_1">Vegetarian only</label>
+                                <x-filament-forms::field-wrapper.label class="form-check-label" for="vegetarians_1">Vegetarian only</label>
                             </div>
                         </li>
                     </ul>
