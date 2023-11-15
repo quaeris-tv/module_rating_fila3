@@ -9,14 +9,16 @@ use Modules\Rating\Enums\RuleEnum;
 use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
 
 /**
- * Modules\Rating\Models\Rating
+ * Modules\Rating\Models\Rating.
  *
  * @property \Spatie\SchemalessAttributes\SchemalessAttributes $extra_attributes
- * @property RuleEnum $rule
+ * @property RuleEnum                                          $rule
+ *
  * @method static Builder|Rating newModelQuery()
  * @method static Builder|Rating newQuery()
  * @method static Builder|Rating query()
  * @method static Builder|Rating withExtraAttributes()
+ *
  * @mixin \Eloquent
  */
 class Rating extends BaseModel
