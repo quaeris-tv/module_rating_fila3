@@ -40,10 +40,10 @@ class RatingResource extends XotBaseResource
                 // Select::make('rule')->options(RuleEnum::class) ,
                 Radio::make('rule')->options(RuleEnum::class),
                 Section::make()
-                ->schema([
-                    Toggle::make('is_disabled'),
-                    Toggle::make('is_readonly'),
-                ])->columns(3),
+                    ->schema([
+                        Toggle::make('is_disabled'),
+                        Toggle::make('is_readonly'),
+                    ])->columns(3),
                 RichEditor::make('txt')->columnSpanFull(),
             ])->columns(3);
     }

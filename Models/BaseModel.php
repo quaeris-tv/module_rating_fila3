@@ -30,10 +30,12 @@ abstract class BaseModel extends Model
     // use Searchable;
 
     protected $connection = 'rating'; // this will use the specified database connection
+
     /**
      * @var string[]
      */
     protected $fillable = ['id'];
+
     /**
      * @var array<string, string>
      */
@@ -45,20 +47,24 @@ abstract class BaseModel extends Model
      * @var string[]
      */
     protected $dates = ['published_at', 'created_at', 'updated_at'];
+
     /**
      * @var string
      */
     protected $primaryKey = 'id';
+
     /**
      * @var bool
      */
     public $incrementing = true;
+
     /**
      * @var array<int, string>
      */
     protected $hidden = [
         // 'password'
     ];
+
     /**
      * @var bool
      */
