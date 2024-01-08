@@ -55,7 +55,7 @@ trait HasLikes
     public function dislikedBy($user)
     {
         /**
-         * @var \Modules\Rating\Models\Like
+         * @var Like
          */
         $where = $this->likesRelation()->where('user_id', $user->id)->first();
         if (null !== $where) {
