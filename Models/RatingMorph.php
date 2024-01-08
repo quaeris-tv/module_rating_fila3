@@ -9,18 +9,18 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 /**
  * Modules\Rating\Models\RatingMorph.
  *
- * @property int                                $id
- * @property string|null                        $post_type
- * @property int|null                           $post_id
- * @property string|null                        $related_type
- * @property int|null                           $related_id
- * @property \Modules\Rating\Models\Rating|null $rating
- * @property string|null                        $created_by
- * @property string|null                        $updated_by
- * @property string|null                        $deleted_by
- * @property \Illuminate\Support\Carbon|null    $created_at
- * @property \Illuminate\Support\Carbon|null    $updated_at
- * @property int|null                           $auth_user_id
+ * @property int                             $id
+ * @property string|null                     $post_type
+ * @property int|null                        $post_id
+ * @property string|null                     $related_type
+ * @property int|null                        $related_id
+ * @property Rating|null                     $rating
+ * @property string|null                     $created_by
+ * @property string|null                     $updated_by
+ * @property string|null                     $deleted_by
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int|null                        $auth_user_id
  *
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph newQuery()
