@@ -21,7 +21,7 @@ class Rating
                 ->schema([
                     TextInput::make('title')->required(),
                     TextInput::make('color'),
-                ]),
+                ])->columnSpanFull(),
             ])
             // ->reorderableWithButtons()
             // ->addActionLabel('Add member')
