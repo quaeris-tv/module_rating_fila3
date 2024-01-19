@@ -46,4 +46,8 @@ class Rating extends BaseModel
     {
         return $this->extra_attributes->modelScope();
     }
+
+    public function linkedTo(){
+        return $this->morphTo('model');
+    }
 }
