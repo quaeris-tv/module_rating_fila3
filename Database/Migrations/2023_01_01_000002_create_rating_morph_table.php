@@ -49,7 +49,11 @@ class CreateRatingMorphTable extends XotBaseMigration
                     $table->text('note')->nullable();
                 }
 
-                $this->updateTimestamps(table: $table, hasSoftDeletes: false);
+                if (! $this->hasColumn('is_winner')) {
+                    $table->boolean('is_winner')->default(0);
+                }
+
+                $this->updateTimestamps(table: $table, hasSoftDeletes: true);
             }
         );
     }

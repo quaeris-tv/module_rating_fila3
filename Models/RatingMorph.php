@@ -52,6 +52,7 @@ class RatingMorph extends BaseMorphPivot
         'user_id',
         'note',
         'value',
+        'is_winner',
     ];
     // -------- RELATIONSHIP -----------
 
