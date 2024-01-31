@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Rating\Filament\Blocks;
 
-use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\ColorPicker;
+use Filament\Forms\Components\Builder\Block;
 
 class Rating
 {
@@ -20,8 +21,8 @@ class Rating
                 ->relationship()
                 ->schema([
                     TextInput::make('title')->required(),
-                    TextInput::make('color'),
-                ])->columnSpanFull(),
+                    ColorPicker::make('color')
+                ])->columnSpanFull()->columns(2),
             ])
             // ->reorderableWithButtons()
             // ->addActionLabel('Add member')
