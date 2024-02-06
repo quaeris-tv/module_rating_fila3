@@ -22,7 +22,8 @@ use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
  *
  * @mixin \Eloquent
  */
-class Rating extends BaseModel {
+class Rating extends BaseModel
+{
     protected $fillable = [
         'id',
         'extra_attributes',
@@ -42,11 +43,13 @@ class Rating extends BaseModel {
         'is_readonly' => 'boolean',
     ];
 
-    public function scopeWithExtraAttributes(): Builder {
+    public function scopeWithExtraAttributes(): Builder
+    {
         return $this->extra_attributes->modelScope();
     }
 
-    public function linkedTo(): MorphTo {
+    public function linkedTo(): MorphTo
+    {
         return $this->morphTo('model');
     }
 }
