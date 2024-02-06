@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Rating\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Modules\Rating\Enums\RuleEnum;
 use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
 
@@ -21,8 +22,7 @@ use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
  *
  * @mixin \Eloquent
  */
-class Rating extends BaseModel
-{
+class Rating extends BaseModel {
     protected $fillable = [
         'id',
         'extra_attributes',
@@ -42,13 +42,11 @@ class Rating extends BaseModel
         'is_readonly' => 'boolean',
     ];
 
-    public function scopeWithExtraAttributes(): Builder
-    {
+    public function scopeWithExtraAttributes(): Builder {
         return $this->extra_attributes->modelScope();
     }
 
-    public function linkedTo()
-    {
+    public function linkedTo(): MorphTo {
         return $this->morphTo('model');
     }
 }
