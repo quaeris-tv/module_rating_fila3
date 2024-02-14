@@ -31,7 +31,7 @@ abstract class BaseMorphPivot extends MorphPivot
     protected $connection = 'rating'; // this will use the specified database connection
 
     /**
-     * @var array
+     * @var array<int, string>
      */
     protected $appends = [];
 
