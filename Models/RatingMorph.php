@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property int|null                        $auth_user_id
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph query()
@@ -37,13 +38,15 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereRelatedType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereUpdatedBy($value)
+ *
  * @property string|null $user_id
  * @property string|null $model_type
- * @property int|null $model_id
- * @property int $rating_id
- * @property int|null $value
+ * @property int|null    $model_id
+ * @property int         $rating_id
+ * @property int|null    $value
  * @property string|null $note
  * @property string|null $deleted_at
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereIsWinner($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereModelId($value)
@@ -52,6 +55,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereRatingId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereValue($value)
+ *
  * @mixin \Eloquent
  */
 class RatingMorph extends BaseMorphPivot
