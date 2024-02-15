@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * Modules\Rating\Models\RatingMorph.
  *
  * @property int                             $id
+ * @property bool                        $is_winner
  * @property string|null                     $post_type
  * @property int|null                        $post_id
  * @property string|null                     $related_type
