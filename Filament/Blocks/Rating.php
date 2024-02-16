@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Rating\Filament\Blocks;
 
-use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\Builder\Block;
+use Filament\Forms\Components\ColorPicker;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Forms\Components\TextInput;
 
 class Rating
 {
@@ -24,12 +24,17 @@ class Rating
                     TextInput::make('title')->required(),
                     ColorPicker::make('color'),
                     SpatieMediaLibraryFileUpload::make('avatar'),
+<<<<<<< HEAD
                         //->collection('avatars')
                 ])
                 ->reorderableWithButtons()
                 ->reorderableWithDragAndDrop(true)
                 ->columnSpanFull()
                 ->columns(3),
+=======
+                    // ->collection('avatars')
+                ])->columnSpanFull()->columns(3),
+>>>>>>> 0a39a24a5a7980a693455181375483ef716b39ea
             ])
             // ->reorderableWithButtons()
             // ->addActionLabel('Add member')
