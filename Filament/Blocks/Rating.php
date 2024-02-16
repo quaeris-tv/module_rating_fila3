@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Rating\Filament\Blocks;
 
-use Filament\Forms\Components\Builder\Block;
-use Filament\Forms\Components\ColorPicker;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\ColorPicker;
+use Filament\Forms\Components\Builder\Block;
 
 class Rating
 {
@@ -18,6 +19,14 @@ class Rating
     ): Block {
         return Block::make($name)
             ->schema([
+                Select::make('version')
+                    ->label('version')
+                    ->options([
+                        'v1' => 'versione 1 (Tailwind)',
+                        'v2' => 'versione 2 (Bootstrap)',
+                    ])
+                    ->default('v1')
+                    ->columnSpanFull(),
                 Repeater::make('ratings')
                 ->relationship()
                 ->schema([
