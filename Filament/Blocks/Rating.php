@@ -24,7 +24,7 @@ class Rating
                     TextInput::make('title')->required(),
                     ColorPicker::make('color'),
                     SpatieMediaLibraryFileUpload::make('avatar'),
-                        //->collection('avatars')
+                    // ->collection('avatars')
                 ])
                 ->reorderableWithButtons()
                 ->reorderableWithDragAndDrop(true)
