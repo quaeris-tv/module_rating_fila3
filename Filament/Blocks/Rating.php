@@ -20,10 +20,10 @@ class Rating
         return Block::make($name)
             ->schema([
                 Select::make('version')
-                    ->label('version')
+                    ->label('layout')
                     ->options([
-                        'v1' => 'versione 1 (Tailwind)',
-                        'v2' => 'versione 2 (Bootstrap)',
+                        'v1' => 'layout 1 (Tailwind)',
+                        'v2' => 'layout 2 (Bootstrap)',
                     ])
                     ->default('v1')
                     ->columnSpanFull(),
