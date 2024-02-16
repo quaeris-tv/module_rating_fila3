@@ -7,6 +7,8 @@ namespace Modules\Rating\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Modules\Rating\Enums\RuleEnum;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
 
 /**
@@ -56,8 +58,9 @@ use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
  *
  * @mixin \Eloquent
  */
-class Rating extends BaseModel
+class Rating extends BaseModel implements HasMedia
 {
+    use InteractsWithMedia;
     protected $fillable = [
         'id',
         'extra_attributes',
