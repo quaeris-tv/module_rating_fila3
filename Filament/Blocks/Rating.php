@@ -25,7 +25,11 @@ class Rating
                     ColorPicker::make('color'),
                     SpatieMediaLibraryFileUpload::make('avatar'),
                         //->collection('avatars')
-                ])->columnSpanFull()->columns(3),
+                ])
+                ->reorderableWithButtons()
+                ->reorderableWithDragAndDrop(true)
+                ->columnSpanFull()
+                ->columns(3),
             ])
             // ->reorderableWithButtons()
             // ->addActionLabel('Add member')
