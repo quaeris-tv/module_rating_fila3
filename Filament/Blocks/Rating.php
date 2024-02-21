@@ -7,26 +7,16 @@ namespace Modules\Rating\Filament\Blocks;
 use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 
-class Rating
-{
+class Rating {
     public static function make(
         string $name = 'rating',
         string $context = 'form',
     ): Block {
         return Block::make($name)
             ->schema([
-                Select::make('version')
-                    ->label('layout')
-                    ->options([
-                        'v1' => 'layout 1 (Tailwind)',
-                        'v2' => 'layout 2 (Bootstrap)',
-                    ])
-                    ->default('v1')
-                    ->columnSpanFull(),
                 Repeater::make('ratings')
                 ->relationship()
                 ->schema([
