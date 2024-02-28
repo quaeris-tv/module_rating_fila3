@@ -28,6 +28,7 @@ abstract class BaseMorphPivot extends MorphPivot
      */
     protected $perPage = 30;
 
+    /** @var string */
     protected $connection = 'rating'; // this will use the specified database connection
 
     /**
@@ -35,19 +36,13 @@ abstract class BaseMorphPivot extends MorphPivot
      */
     protected $appends = [];
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $primaryKey = 'id';
 
-    /**
-     * @var bool
-     */
+    /** @var bool */
     public $incrementing = true;
 
-    /**
-     * @var bool
-     */
+    /** @var bool */
     public $timestamps = true;
 
     // protected $attributes = ['related_type' => 'cuisine_cat'];
@@ -61,9 +56,7 @@ abstract class BaseMorphPivot extends MorphPivot
         // 'published_at',
     ];
 
-    /**
-     * @var string[]
-     */
+    /** @var array<int, string> */
     protected $fillable = [
         'id',
         'post_id', 'post_type',

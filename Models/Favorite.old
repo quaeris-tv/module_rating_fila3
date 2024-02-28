@@ -45,9 +45,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  */
 class Favorite extends BaseModel
 {
-    /**
-     * @var string[]
-     */
+    /**  @var array<int, string>  */
     protected $fillable = ['id', 'post_id', 'post_type', 'user_id'];
 
     /**

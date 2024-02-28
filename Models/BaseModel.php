@@ -32,16 +32,13 @@ abstract class BaseModel extends Model
 
     // use Searchable;
 
+    /** @var string */
     protected $connection = 'rating'; // this will use the specified database connection
 
-    /**
-     * @var string[]
-     */
+    /** @var array<int, string> */
     protected $fillable = ['id'];
 
-    /**
-     * @var array<string, string>
-     */
+    /** @var array<string, string> */
     protected $casts = [
         // 'published_at' => 'datetime:Y-m-d', // da verificare
     ];
@@ -51,14 +48,10 @@ abstract class BaseModel extends Model
      */
     protected $dates = ['published_at', 'created_at', 'updated_at'];
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $primaryKey = 'id';
 
-    /**
-     * @var bool
-     */
+    /** @var bool */
     public $incrementing = true;
 
     /**
@@ -68,8 +61,6 @@ abstract class BaseModel extends Model
         // 'password'
     ];
 
-    /**
-     * @var bool
-     */
+    /** @var bool */
     public $timestamps = true;
 }

@@ -60,9 +60,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  */
 class RatingMorph extends BaseMorphPivot
 {
-    /**
-     * @var string[]
-     */
+    /** @var array<int, string> */
     protected $fillable = [
         'id',
         'model_id', 'model_type',

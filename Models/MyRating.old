@@ -46,13 +46,9 @@ namespace Modules\Rating\Models;
  */
 class MyRating extends BaseModelLang
 {
-    /**
-     * @var string
-     */
+    /**  @var string */
     protected $table = 'ratings';
-    /**
-     * @var string[]
-     */
+    /**  @var array<int, string>  */
     protected $fillable = ['id', 'my_rating', 'related_type'];
     /**
      * @var string[]
