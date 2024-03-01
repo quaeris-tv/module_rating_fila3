@@ -54,9 +54,7 @@ abstract class BaseModel extends Model
     /** @var bool */
     public $incrementing = true;
 
-    /**
-     * @var array<int, string>
-     */
+    /** @var array<int, string> */
     protected $hidden = [
         // 'password'
     ];
