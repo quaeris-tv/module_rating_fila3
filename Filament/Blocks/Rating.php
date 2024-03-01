@@ -10,7 +10,8 @@ use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 
-class Rating {
+class Rating
+{
     public static function make(
         string $name = 'rating',
         string $context = 'form',
