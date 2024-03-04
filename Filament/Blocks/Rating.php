@@ -23,8 +23,8 @@ class Rating
                 ->schema([
                     TextInput::make('title')->required(),
                     ColorPicker::make('color'),
-                    SpatieMediaLibraryFileUpload::make('avatar'),
-                    // ->collection('avatars')
+                    SpatieMediaLibraryFileUpload::make('rating')
+                        ->collection('rating'),
                 ])
                 ->reorderableWithButtons()
                 ->reorderableWithDragAndDrop(true)
