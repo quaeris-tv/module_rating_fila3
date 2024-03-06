@@ -4,11 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\Rating\Filament\Blocks;
 
-use Filament\Forms\Components\Builder\Block;
-use Filament\Forms\Components\ColorPicker;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\ColorPicker;
+use Filament\Forms\Components\Builder\Block;
+use Filament\Forms\Components\Actions\Action;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Modules\Xot\Actions\View\GetViewsSiblingsAndSelfAction;
 
 class Rating
 {
@@ -16,8 +21,16 @@ class Rating
         string $name = 'rating',
         string $context = 'form',
     ): Block {
+        $view = 'blog::components.blocks.rating.v1';
+        $views = app(GetViewsSiblingsAndSelfAction::class)->execute($view);
+
+
         return Block::make($name)
             ->schema([
+                Select::make('_tpl')    
+                    ->label('layout')
+                    ->options($views),
+
                 Repeater::make('ratings')
                 ->relationship()
                 ->schema([
@@ -29,11 +42,30 @@ class Rating
                 ->reorderableWithButtons()
                 ->reorderableWithDragAndDrop(true)
                 ->columnSpanFull()
-                ->columns(3),
+                ->columns(3)
+
+                // ->deleteAction(
+                //     fn(Action $action) => $action->after(fn(Get $get, Set $set) => self::doSomething($get, $set)),
+                //     // function(Action $action){
+                //     //     // return $action->after(fn(Get $get, Set $set) => self::updateTotals($get, $set))
+                //     //     return $action->after(function(Get $get, Set $set){
+                //     //         // dddx([$get, $set]);
+                //     //         dddx($get);
+                //     //     });
+                //     // }
+                // )
+                ,
             ])
             // ->reorderableWithButtons()
             // ->addActionLabel('Add member')
             // ->label('Link to article')
             ->columns('form' === $context ? 2 : 1);
     }
+
+    // // https://laraveldaily.com/post/filament-repeater-live-calculations-on-update
+    // public static function doSomething(Get $get, Set $set): void
+    // {
+    //     // dddx(get_defined_vars());
+    //     dddx(get_class_methods($get));
+    // }
 }
