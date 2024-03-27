@@ -1,0 +1,17 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Modules\Rating\Models\Policies;
+
+use Modules\Xot\Contracts\UserContract;
+use Modules\Cms\Models\Panels\Policies\XotBasePanelPolicy;
+
+/**
+ * Class RatingPolicy.
+ */
+class RatingPolicy extends XotBasePanelPolicy {
+    public function create(UserContract $user, \Illuminate\Database\Eloquent\Model $post): bool {
+        return false;
+    }
+}
