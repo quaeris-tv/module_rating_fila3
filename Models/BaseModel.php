@@ -39,9 +39,14 @@ abstract class BaseModel extends Model
     protected $fillable = ['id'];
 
     /** @var array<string, string> */
-    protected $casts = [
+    protected function casts(): array
+    {
+        return [
+
         // 'published_at' => 'datetime:Y-m-d', // da verificare
-    ];
+
+        ];
+    }
 
     /**
      * @var string[]
