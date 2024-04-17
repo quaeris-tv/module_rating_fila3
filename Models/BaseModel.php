@@ -42,9 +42,7 @@ abstract class BaseModel extends Model
     protected function casts(): array
     {
         return [
-
-        // 'published_at' => 'datetime:Y-m-d', // da verificare
-
+            // 'published_at' => 'datetime:Y-m-d', // da verificare
         ];
     }
 
