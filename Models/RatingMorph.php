@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Rating\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
@@ -73,9 +74,9 @@ class RatingMorph extends BaseMorphPivot
     ];
     // -------- RELATIONSHIP -----------
 
-    public function rating(): HasOne
+    public function rating(): BelongsTo
     {
-        return $this->hasOne(Rating::class);
+        return $this->belongsTo(Rating::class, 'rating_id');
     }
 
     public function model(): MorphTo
