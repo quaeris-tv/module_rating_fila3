@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Rating\Models;
 
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 /**
  * Modules\Rating\Models\RatingMorph.
@@ -75,5 +76,10 @@ class RatingMorph extends BaseMorphPivot
     public function rating(): HasOne
     {
         return $this->hasOne(Rating::class);
+    }
+
+    public function model(): MorphTo
+    {
+        return $this->morphTo('model');
     }
 }
