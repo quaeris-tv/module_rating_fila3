@@ -4,15 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\Rating\Filament\Blocks;
 
-use Filament\Forms\Components\Actions\Action;
-use Filament\Forms\Components\Builder\Block;
-use Filament\Forms\Components\ColorPicker;
-use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
+use Modules\Xot\Datas\XotData;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\ColorPicker;
+use Filament\Forms\Components\Builder\Block;
+use Filament\Forms\Components\Actions\Action;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Modules\Xot\Actions\View\GetViewsSiblingsAndSelfAction;
 
 class Rating
@@ -24,15 +26,24 @@ class Rating
         $view = 'blog::components.blocks.rating.v1';
         $views = app(GetViewsSiblingsAndSelfAction::class)->execute($view);
 
+
+        //dddx(get_class_methods(Repeater::class));
+        $primary_lang=XotData::make()->primary_lang;
         return Block::make($name)
             ->schema([
                 Select::make('_tpl')
                     ->label('layout')
                     ->options($views),
-
+                
+                
                 Repeater::make('ratings')
+                ->visible(function(Get $get,$record) use($primary_lang){
+                    return ($record->getLocale() == $primary_lang);
+                    
+                })
                 ->relationship()
                 ->schema([
+                    TextInput::make('id')->readonly(),
                     TextInput::make('title')->required(),
                     ColorPicker::make('color'),
                     SpatieMediaLibraryFileUpload::make('rating')
@@ -41,7 +52,8 @@ class Rating
                 ->reorderableWithButtons()
                 ->reorderableWithDragAndDrop(true)
                 ->columnSpanFull()
-                ->columns(3)
+                ->columns(4)
+                ->live()
 
                 // ->deleteAction(
                 //     fn(Action $action) => $action->after(fn(Get $get, Set $set) => self::doSomething($get, $set)),
