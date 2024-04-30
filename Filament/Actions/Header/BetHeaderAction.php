@@ -30,7 +30,7 @@ class BetHeaderAction extends Action
 
         $this->label('')
             ->icon('icon-bottlecap')
-            ->tooltip(trans('rating:txt.bet'))
+            ->tooltip(trans('rating::txt.bet'))
             ->modalWidth('xl')
             ->form(
                 fn (Action $action): array => [
