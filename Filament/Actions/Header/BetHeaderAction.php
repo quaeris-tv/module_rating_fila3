@@ -8,12 +8,10 @@ declare(strict_types=1);
 namespace Modules\Rating\Filament\Actions\Header;
 
 use Filament\Actions\Action;
-use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Modules\Blog\Datas\RatingArticleData;
 use Modules\Blog\Aggregates\ArticleAggregate;
- 
+use Modules\Blog\Datas\RatingArticleData;
 
 class BetHeaderAction extends Action
 {
@@ -40,23 +38,20 @@ class BetHeaderAction extends Action
                     Select::make('rating_id')
                         ->relationship(name: 'ratings', titleAttribute: 'title')
                         ->suffixIcon('heroicon-o-question-mark-circle')
-                        ->required()
-                        ,                        
+                        ->required(),
                     TextInput::make('credits')
                         ->integer()
                         ->required()
                         ->suffixIcon('icon-bottlecap'),
                 ]
             )->action(function (array $data, $record): void {
-                
                 $command = RatingArticleData::from([
                     'userId' => $data['user_id'],
                     'articleId' => $record->getKey(),
                     'ratingId' => $data['rating_id'],
                     'credit' => $data['credits'],
                 ]);
-                
-        
+
                 ArticleAggregate::retrieve($command->articleId)
                     ->rating($command);
             });
