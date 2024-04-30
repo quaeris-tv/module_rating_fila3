@@ -10,9 +10,8 @@ namespace Modules\Rating\Filament\Actions\Header;
 use Filament\Actions\Action;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Modules\Blog\Datas\RatingArticleData;
 use Modules\Blog\Aggregates\ArticleAggregate;
-use Modules\Blog\Actions\Article\MakeBetAction;
+use Modules\Blog\Datas\RatingArticleData;
 
 class BetHeaderAction extends Action
 {
