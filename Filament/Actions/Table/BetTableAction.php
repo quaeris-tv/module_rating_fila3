@@ -5,11 +5,10 @@
 
 declare(strict_types=1);
 
-
 namespace Modules\Rating\Filament\Actions\Table;
 
-use Filament\Tables\Actions\Action;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Actions\Action;
 
 class BetTableAction extends Action
 {
