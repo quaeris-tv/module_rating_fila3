@@ -5,14 +5,11 @@
 
 declare(strict_types=1);
 
-
 namespace Modules\Rating\Filament\Actions\Header;
 
 use Filament\Actions\Action;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Radio;
- 
 
 class BetHeaderAction extends Action
 {
@@ -37,16 +34,15 @@ class BetHeaderAction extends Action
                         ->required(),
                     Select::make('rating_id')
                         ->relationship(name: 'ratings', titleAttribute: 'title')
-                        //->suffixIcon('icon-bottlecap')
-                        ->required()
-                        ,                        
+                        // ->suffixIcon('icon-bottlecap')
+                        ->required(),
                     TextInput::make('credits')
                         ->integer()
                         ->required()
                         ->suffixIcon('icon-bottlecap'),
                 ]
             )->action(function (array $data, $record): void {
-                dddx(['data'=>$data,'record'=>$record]);
+                dddx(['data' => $data, 'record' => $record]);
             });
     }
 }
