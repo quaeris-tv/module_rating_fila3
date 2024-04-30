@@ -25,6 +25,9 @@ class BetHeaderAction extends Action
         parent::setUp();
         $this->translateLabel();
 
+        // dddx($this->record->getBettersByUser());
+        // dddx($this->record);
+
         $this->label('')
             ->icon('icon-bottlecap')
             ->tooltip(trans('rating::txt.bet'))
