@@ -9,7 +9,10 @@ declare(strict_types=1);
 namespace Modules\Rating\Filament\Actions\Header;
 
 use Filament\Actions\Action;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Radio;
+ 
 
 class BetHeaderAction extends Action
 {
@@ -26,12 +29,24 @@ class BetHeaderAction extends Action
         $this->label('')
             ->icon('icon-bottlecap')
             ->tooltip(trans('rating:txt.bet'))
-            //->color('secondary')
             ->modalWidth('xl')
             ->form(
                 fn (Action $action): array => [
-                    TextInput::make('aa'),
+                    Select::make('user_id')
+                        ->relationship(name: 'user', titleAttribute: 'name')
+                        ->required(),
+                    Select::make('rating_id')
+                        ->relationship(name: 'ratings', titleAttribute: 'title')
+                        //->suffixIcon('icon-bottlecap')
+                        ->required()
+                        ,                        
+                    TextInput::make('credits')
+                        ->integer()
+                        ->required()
+                        ->suffixIcon('icon-bottlecap'),
                 ]
-            );
+            )->action(function (array $data, $record): void {
+                dddx(['data'=>$data,'record'=>$record]);
+            });
     }
 }
