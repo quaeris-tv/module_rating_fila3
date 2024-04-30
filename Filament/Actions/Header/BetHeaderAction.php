@@ -36,7 +36,15 @@ class BetHeaderAction extends Action
                         ->suffixIcon('heroicon-o-user')
                         ->required(),
                     Select::make('rating_id')
-                        ->relationship(name: 'ratings', titleAttribute: 'title')
+                        //->relationship(name: 'ratings', titleAttribute: 'title')
+                        ->options(function($record){
+                            $opts=$record
+                                ->ratings()
+                                ->wherePivot('user_id',null)
+                                ->pluck('title','ratings.id')
+                                ->toArray();
+                            return $opts;
+                        })
                         ->suffixIcon('heroicon-o-question-mark-circle')
                         ->required(),
                     TextInput::make('credits')
