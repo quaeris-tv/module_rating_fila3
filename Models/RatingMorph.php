@@ -71,6 +71,7 @@ class RatingMorph extends BaseMorphPivot
         'note',
         'value',
         'is_winner',
+        'reward',
     ];
     // -------- RELATIONSHIP -----------
 
@@ -83,6 +84,12 @@ class RatingMorph extends BaseMorphPivot
     {   
         $user_class=XotData::make()->getUserClass();
         return $this->belongsTo($user_class, 'user_id');
+    }
+
+    public function profile(): BelongsTo
+    {   
+        $profile_class=XotData::make()->getProfileClass();
+        return $this->belongsTo($profile_class, 'user_id','user_id');
     }
 
     public function model(): MorphTo
