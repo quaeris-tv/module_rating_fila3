@@ -58,6 +58,10 @@ use Modules\Xot\Datas\XotData;
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereValue($value)
  *
+ * @property \Illuminate\Database\Eloquent\Model|\Eloquent $model
+ * @property \Modules\Blog\Models\Profile|null             $profile
+ * @property \Modules\User\Models\User|null                $user
+ *
  * @mixin \Eloquent
  */
 class RatingMorph extends BaseMorphPivot
