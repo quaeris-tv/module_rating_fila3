@@ -35,9 +35,8 @@ class Rating
                     ->options($views),
 
                 Repeater::make('ratings')
-                ->visible(function(Get $get,$record) use($primary_lang){
-                    return ($record?->getLocale() == $primary_lang);
-                    
+                ->visible(function (Get $get, $record) use ($primary_lang) {
+                    return $record?->getLocale() == $primary_lang;
                 })
                 ->relationship()
                 ->schema([
