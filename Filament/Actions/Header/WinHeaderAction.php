@@ -9,8 +9,6 @@ namespace Modules\Rating\Filament\Actions\Header;
 
 use Filament\Actions\Action;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Modules\Blog\Datas\RatingArticleData;
 use Modules\Blog\Aggregates\ArticleAggregate;
 use Modules\Blog\Datas\RatingArticleWinnerData;
 use Modules\Rating\Actions\HasRating\GetRatingOptsByModelAction;
@@ -35,7 +33,7 @@ class WinHeaderAction extends Action
                 fn (Action $action): array => [
                     Select::make('rating_id')
                         ->label('domanda vincente')
-                        ->options(function($record){
+                        ->options(function ($record) {
                             return app(GetRatingOptsByModelAction::class)->execute($record);
                         })
                         ->suffixIcon('heroicon-o-question-mark-circle')

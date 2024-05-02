@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Rating\Models;
 
-use Modules\Xot\Datas\XotData;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Modules\Xot\Datas\XotData;
 
 /**
  * Modules\Rating\Models\RatingMorph.
@@ -81,15 +81,17 @@ class RatingMorph extends BaseMorphPivot
     }
 
     public function user(): BelongsTo
-    {   
-        $user_class=XotData::make()->getUserClass();
+    {
+        $user_class = XotData::make()->getUserClass();
+
         return $this->belongsTo($user_class, 'user_id');
     }
 
     public function profile(): BelongsTo
-    {   
-        $profile_class=XotData::make()->getProfileClass();
-        return $this->belongsTo($profile_class, 'user_id','user_id');
+    {
+        $profile_class = XotData::make()->getProfileClass();
+
+        return $this->belongsTo($profile_class, 'user_id', 'user_id');
     }
 
     public function model(): MorphTo
