@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Rating\Models;
 
-use Modules\Xot\Datas\XotData;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Modules\Xot\Datas\XotData;
 
 /**
  * Modules\Rating\Models\RatingMorph.
@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property int|null                        $auth_user_id
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph query()
@@ -39,6 +40,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereRelatedType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereUpdatedBy($value)
+ *
  * @property string|null $user_id
  * @property string|null $model_type
  * @property int|null    $model_id
@@ -46,6 +48,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int|null    $value
  * @property string|null $note
  * @property string|null $deleted_at
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereIsWinner($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereModelId($value)
@@ -54,9 +57,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereRatingId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereValue($value)
- * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $model
- * @property-read \Modules\Blog\Models\Profile|null $profile
- * @property-read \Modules\User\Models\User|null $user
+ *
+ * @property \Illuminate\Database\Eloquent\Model|\Eloquent $model
+ * @property \Modules\Blog\Models\Profile|null             $profile
+ * @property \Modules\User\Models\User|null                $user
+ *
  * @mixin \Eloquent
  */
 class RatingMorph extends BaseMorphPivot
@@ -80,15 +85,17 @@ class RatingMorph extends BaseMorphPivot
     }
 
     public function user(): BelongsTo
-    {   
-        $user_class=XotData::make()->getUserClass();
+    {
+        $user_class = XotData::make()->getUserClass();
+
         return $this->belongsTo($user_class, 'user_id');
     }
 
     public function profile(): BelongsTo
-    {   
-        $profile_class=XotData::make()->getProfileClass();
-        return $this->belongsTo($profile_class, 'user_id','user_id');
+    {
+        $profile_class = XotData::make()->getProfileClass();
+
+        return $this->belongsTo($profile_class, 'user_id', 'user_id');
     }
 
     public function model(): MorphTo

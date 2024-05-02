@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Rating\Models\Traits;
 
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Support\Arr;
 use Modules\Rating\Models\Rating;
-use Illuminate\Support\Facades\Auth;
 use Modules\Rating\Models\RatingMorph;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
  * Trait HasRating.
@@ -138,5 +136,4 @@ trait HasRating
 
         return $result;
     }
-
 }

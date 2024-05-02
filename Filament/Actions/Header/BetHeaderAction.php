@@ -10,8 +10,8 @@ namespace Modules\Rating\Filament\Actions\Header;
 use Filament\Actions\Action;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Modules\Blog\Datas\RatingArticleData;
 use Modules\Blog\Aggregates\ArticleAggregate;
+use Modules\Blog\Datas\RatingArticleData;
 use Modules\Rating\Actions\HasRating\GetRatingOptsByModelAction;
 
 class BetHeaderAction extends Action
@@ -37,8 +37,8 @@ class BetHeaderAction extends Action
                         ->suffixIcon('heroicon-o-user')
                         ->required(),
                     Select::make('rating_id')
-                        //->relationship(name: 'ratings', titleAttribute: 'title')
-                        ->options(function($record){
+                        // ->relationship(name: 'ratings', titleAttribute: 'title')
+                        ->options(function ($record) {
                             return app(GetRatingOptsByModelAction::class)->execute($record);
                         })
                         ->suffixIcon('heroicon-o-question-mark-circle')

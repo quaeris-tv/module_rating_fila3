@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Rating\Actions\HasRating;
 
-use Spatie\QueueableAction\QueueableAction;
 use Modules\Rating\Models\Contracts\HasRatingContract;
+use Spatie\QueueableAction\QueueableAction;
 
-
-
-class GetRatingOptsByModelAction{
+class GetRatingOptsByModelAction
+{
     use QueueableAction;
 
     /**
@@ -15,10 +16,11 @@ class GetRatingOptsByModelAction{
      */
     public function execute(HasRatingContract $model): array
     {
-        $opts=$model->ratings()
-            ->wherePivot('user_id',null)
-            ->pluck('title','ratings.id')
+        $opts = $model->ratings()
+            ->wherePivot('user_id', null)
+            ->pluck('title', 'ratings.id')
             ->toArray();
+
         return $opts;
     }
 }
