@@ -4,12 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\Rating\Models\Contracts;
 
+use Modules\Rating\Models\Rating;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
+
 /**
  * --
  */
 interface HasRatingContract
 {
-   
+    /**
+     * @return MorphToMany<Rating>
+     */
+    public function ratings(): MorphToMany;
 }
 
 /*
