@@ -6,6 +6,7 @@ namespace Modules\Rating\Actions\HasRating;
 
 use Modules\Rating\Models\Contracts\HasRatingContract;
 use Spatie\QueueableAction\QueueableAction;
+use Webmozart\Assert\Assert;
 
 class GetSumByModelRatingIdAction
 {
@@ -14,7 +15,7 @@ class GetSumByModelRatingIdAction
     /**
      * Undocumented function.
      */
-    public function execute(HasRatingContract $model, ?string $rating_id = null): int|string
+    public function execute(HasRatingContract $model, ?string $rating_id = null): float
     {
         $opts = $model->ratings()
         ->wherePivot('user_id', '!=', null);
@@ -22,6 +23,7 @@ class GetSumByModelRatingIdAction
             $opts = $opts->wherePivot('rating_id', $rating_id);
         }
         $opts = $opts->sum('rating_morph.value');
+        Assert::float($opts, '['.__LINE__.']['.__FILE__.']');
 
         return $opts;
     }
