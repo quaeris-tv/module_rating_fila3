@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Rating\Actions\HasRating;
 
-use Webmozart\Assert\Assert;
-use Spatie\QueueableAction\QueueableAction;
 use Modules\Rating\Models\Contracts\HasRatingContract;
+use Spatie\QueueableAction\QueueableAction;
+use Webmozart\Assert\Assert;
 
 class GetSumByModelRatingIdAction
 {
@@ -23,7 +23,8 @@ class GetSumByModelRatingIdAction
             $opts = $opts->wherePivot('rating_id', $rating_id);
         }
         $opts = $opts->sum('rating_morph.value');
-        Assert::float($opts,'['.__LINE__.']['.__FILE__.']');
+        Assert::float($opts, '['.__LINE__.']['.__FILE__.']');
+
         return $opts;
     }
 }
