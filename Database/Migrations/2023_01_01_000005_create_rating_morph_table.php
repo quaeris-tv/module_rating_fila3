@@ -57,6 +57,10 @@ class CreateRatingMorphTable extends XotBaseMigration
                     $table->decimal('reward', 10, 3)->default(0);
                 }
 
+                if (! $this->hasColumn('value')) {
+                    $table->decimal('value', 10, 3)->change();
+                }
+
                 $this->updateTimestamps(table: $table, hasSoftDeletes: true);
             }
         );
