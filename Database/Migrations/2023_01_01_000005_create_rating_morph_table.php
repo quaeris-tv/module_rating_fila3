@@ -55,13 +55,10 @@ class CreateRatingMorphTable extends XotBaseMigration
 
                 if (! $this->hasColumn('reward')) {
                     $table->decimal('reward', 10, 3)->default(0);
-<<<<<<< HEAD:Database/Migrations/2023_01_01_000005_create_rating_morph_table.php
                 }
 
                 if (! $this->hasColumn('value')) {
                     $table->decimal('value', 10, 3)->change();
-=======
->>>>>>> 1d9c123 (Check & fix styling):Database/Migrations/2023_01_01_000004_create_rating_morph_table.php
                 }
 
                 $this->updateTimestamps(table: $table, hasSoftDeletes: true);
