@@ -6,7 +6,10 @@ namespace Modules\Rating\Actions\HasRating;
 
 use Modules\Rating\Models\Contracts\HasRatingContract;
 use Spatie\QueueableAction\QueueableAction;
+<<<<<<< HEAD
 use Webmozart\Assert\Assert;
+=======
+>>>>>>> 1d9c123 (Check & fix styling)
 
 class GetSumByModelRatingIdAction
 {
@@ -22,8 +25,12 @@ class GetSumByModelRatingIdAction
         if (null !== $rating_id) {
             $opts = $opts->wherePivot('rating_id', $rating_id);
         }
+<<<<<<< HEAD
         $opts = (float) $opts->sum('rating_morph.value');
         Assert::float($opts, '['.__LINE__.']['.__FILE__.']');
+=======
+        $opts = $opts->sum('rating_morph.value');
+>>>>>>> 1d9c123 (Check & fix styling)
 
         return $opts;
     }
