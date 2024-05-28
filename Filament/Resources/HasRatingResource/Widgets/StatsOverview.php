@@ -11,6 +11,11 @@ use Modules\Rating\Actions\HasRating\GetCountByModelRatingIdAction;
 use Modules\Rating\Actions\HasRating\GetSumByModelRatingIdAction;
 use Modules\Rating\Models\Contracts\HasRatingContract;
 
+/**
+ * Undocumented class.
+ *
+ * @property (Model&HasRatingContract)|null $record
+ */
 class StatsOverview extends BaseWidget
 {
     public (Model&HasRatingContract)|null $record = null;
