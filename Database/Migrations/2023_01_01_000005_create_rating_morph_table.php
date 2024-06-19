@@ -29,7 +29,7 @@ class CreateRatingMorphTable extends XotBaseMigration
                 $table->foreignIdFor(Rating::class, 'rating_id')->nullable();
                 $table->nullableMorphs('model');
                 $table->foreignIdFor(User::class, 'user_id')->nullable();
-                $table->integer('value')->nullable();
+                $table->decimal('value', 10, 3)->nullable();
                 $table->text('note')->nullable();
             }
         );
@@ -57,8 +57,10 @@ class CreateRatingMorphTable extends XotBaseMigration
                     $table->decimal('reward', 10, 3)->default(0);
                 }
 
-                if (! $this->hasColumn('value')) {
-                    $table->decimal('value', 10, 3)->change();
+                if ($this->hasColumn('value')) {
+                    $table->decimal('value', 10, 3)->nullable()->change();
+                } else {
+                    $table->decimal('value', 10, 3)->nullable();
                 }
 
                 $this->updateTimestamps(table: $table, hasSoftDeletes: true);
