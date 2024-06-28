@@ -1,0 +1,13 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Modules\Rating\Models\Policies;
+
+use Modules\Cms\Models\Panels\Policies\XotBasePanelPolicy;
+
+/**
+ * Class RatingMorphPolicy.
+ */
+class RatingMorphPolicy extends XotBasePanelPolicy {
+}
