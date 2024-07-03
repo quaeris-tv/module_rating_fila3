@@ -22,7 +22,7 @@ class Rating
         string $name = 'rating',
         string $context = 'form',
     ): Block {
-        $view = 'blog::components.blocks.rating.v1';
+        $view = 'rating::components.blocks.rating.v1';
         $views = app(GetViewsSiblingsAndSelfAction::class)->execute($view);
 
         // dddx(get_class_methods(Repeater::class));
