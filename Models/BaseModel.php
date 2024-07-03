@@ -33,7 +33,7 @@ abstract class BaseModel extends Model
     // use Searchable;
 
     /** @var string */
-    protected $connection = 'rating'; // this will use the specified database connection
+    protected $connection = 'rating';
 
     /** @var array<int, string> */
     protected $fillable = ['id'];
