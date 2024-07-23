@@ -34,23 +34,7 @@
         "spatie/laravel-translatable": "^6.1"
     },
     "require-dev_comment": {
-        "barryvdh/laravel-ide-helper": "^2.12",
-        "fakerphp/faker": "^1.14",
-        "friendsofphp/php-cs-fixer": "^3.0",
-        "inertiajs/inertia-laravel": "^0.6.3",
-        "nesbot/carbon": "^2.63",
-        "nette/php-generator": "^4.0",
-        "larastan/larastan": "^2.2",
-        "orchestra/testbench": "^8.5",
-        "pestphp/pest": "*",
-        "pestphp/pest-plugin-laravel": "^1.3",
-        "phpstan/extension-installer": "^1.1",
-        "phpunit/phpunit": "^9.3",
-        "spatie/invade": "^1.0",
-        "spatie/laravel-typescript-transformer": "^2.1.6",
-        "spatie/pest-plugin-snapshots": "^1.1",
-        "spatie/phpunit-snapshot-assertions": "^4.2",
-        "spatie/test-time": "^1.2"
+
     },
     "scripts": {
         "post-autoload-dump": [
