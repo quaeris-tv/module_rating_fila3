@@ -55,10 +55,8 @@ use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
  * @method static Builder|Rating whereTxt($value)
  * @method static Builder|Rating whereUpdatedAt($value)
  * @method static Builder|Rating whereUpdatedBy($value)
- *
  * @property \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Modules\Media\Models\Media> $media
  * @property int|null                                                                                                   $media_count
- *
  * @mixin \Eloquent
  */
 class Rating extends BaseModel implements HasMedia
