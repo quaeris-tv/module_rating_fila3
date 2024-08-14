@@ -34,7 +34,6 @@
         "spatie/laravel-translatable": "^6.1"
     },
     "require-dev_comment": {
-
     },
     "scripts": {
         "post-autoload-dump": [
