@@ -35,22 +35,22 @@ class Rating
                     ->options($views),
 
                 Repeater::make('ratings')
-                ->visible(function (Get $get, $record) use ($primary_lang) {
-                    return $record?->getLocale() == $primary_lang;
-                })
-                ->relationship()
-                ->schema([
-                    TextInput::make('id')->readonly(),
-                    TextInput::make('title')->required(),
-                    ColorPicker::make('color'),
-                    SpatieMediaLibraryFileUpload::make('rating')
-                        ->collection('rating'),
-                ])
-                ->reorderableWithButtons()
-                ->reorderableWithDragAndDrop(true)
-                ->columnSpanFull()
-                ->columns(4)
-                ->live()
+                    ->visible(function (Get $get, $record) use ($primary_lang) {
+                        return $record?->getLocale() == $primary_lang;
+                    })
+                    ->relationship()
+                    ->schema([
+                        TextInput::make('id')->readonly(),
+                        TextInput::make('title')->required(),
+                        ColorPicker::make('color'),
+                        SpatieMediaLibraryFileUpload::make('rating')
+                            ->collection('rating'),
+                    ])
+                    ->reorderableWithButtons()
+                    ->reorderableWithDragAndDrop(true)
+                    ->columnSpanFull()
+                    ->columns(4)
+                    ->live()
 
                 // ->deleteAction(
                 //     fn(Action $action) => $action->after(fn(Get $get, Set $set) => self::doSomething($get, $set)),

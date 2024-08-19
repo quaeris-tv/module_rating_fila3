@@ -58,12 +58,15 @@ use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
  *
  * @property \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Modules\Media\Models\Media> $media
  * @property int|null                                                                                                   $media_count
+ * @property \Modules\Fixcity\Models\Profile|null                                                                       $creator
+ * @property \Modules\Fixcity\Models\Profile|null                                                                       $updater
  *
  * @mixin \Eloquent
  */
 class Rating extends BaseModel implements HasMedia
 {
     use InteractsWithMedia;
+
     protected $fillable = [
         'id',
         'extra_attributes',

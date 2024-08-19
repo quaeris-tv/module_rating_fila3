@@ -65,6 +65,9 @@ use Modules\Xot\Datas\XotData;
  *
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereReward($value)
  *
+ * @property \Modules\Fixcity\Models\Profile|null $creator
+ * @property \Modules\Fixcity\Models\Profile|null $updater
+ *
  * @mixin \Eloquent
  */
 class RatingMorph extends BaseMorphPivot

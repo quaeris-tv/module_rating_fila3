@@ -44,12 +44,11 @@ trait HasRating
     public function getArrayRatingsWithImage(): array
     {
         $ratings = $this
-        ->ratings()
+            ->ratings()
         // ->with('media')
-        ->where('user_id', null)
-        ->get()
+            ->where('user_id', null)
+            ->get();
         // ->toArray()
-        ;
 
         $ratings_array = [];
 
@@ -57,7 +56,7 @@ trait HasRating
             $ratings_array[$key] = $rating->toArray();
             if (empty($rating->getFirstMediaUrl('rating'))) {
                 $rating->addMediaFromUrl('https://picsum.photos/id/'.rand(1, 200).'/300/200')
-                       ->toMediaCollection('rating');
+                    ->toMediaCollection('rating');
             }
             $ratings_array[$key]['image'] = $rating->getFirstMediaUrl('rating');
             $ratings_array[$key]['effect'] = false;
