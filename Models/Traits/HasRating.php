@@ -44,12 +44,11 @@ trait HasRating
     public function getArrayRatingsWithImage(): array
     {
         $ratings = $this
-        ->ratings()
+            ->ratings()
         // ->with('media')
-        ->where('user_id', null)
-        ->get()
+            ->where('user_id', null)
+            ->get();
         // ->toArray()
-        ;
 
         $ratings_array = [];
 
@@ -57,7 +56,7 @@ trait HasRating
             $ratings_array[$key] = $rating->toArray();
             if (empty($rating->getFirstMediaUrl('rating'))) {
                 $rating->addMediaFromUrl('https://picsum.photos/id/'.rand(1, 200).'/300/200')
-                       ->toMediaCollection('rating');
+                    ->toMediaCollection('rating');
             }
             $ratings_array[$key]['image'] = $rating->getFirstMediaUrl('rating');
             $ratings_array[$key]['effect'] = false;
@@ -80,7 +79,7 @@ trait HasRating
         $ratings = RatingMorph::where('model_id', $this->id)
             ->where('user_id', '!=', null);
 
-        if (null != $rating_id) {
+        if ($rating_id != null) {
             $ratings = $ratings->where('rating_id', $rating_id);
         }
 
@@ -105,7 +104,7 @@ trait HasRating
                 ->where('user_id', '!=', null)
                 ->count();
 
-            if (0 == $b) {
+            if ($b == 0) {
                 $b = 1;
             }
 
@@ -126,7 +125,7 @@ trait HasRating
         $result = [];
 
         $total_volume = $this->getVolumeCredit();
-        if (0 == $total_volume) {
+        if ($total_volume == 0) {
             $total_volume = 1;
         }
 
