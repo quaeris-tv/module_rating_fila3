@@ -10,19 +10,22 @@ namespace Modules\Rating\Contracts;
 interface HasLikeContract
 {
     /**
-     * @param  \Modules\User\Models\User|null  $user
+     * @param \Modules\User\Models\User|null $user
+     *
      * @return bool
      */
     public function isLikedBy($user);
 
     /**
-     * @param  \Modules\User\Models\User|null  $user
+     * @param \Modules\User\Models\User|null $user
+     *
      * @return void
      */
     public function likedBy($user);
 
     /**
-     * @param  \Modules\User\Models\User|null  $user
+     * @param \Modules\User\Models\User|null $user
+     *
      * @return void
      */
     public function dislikedBy($user);
