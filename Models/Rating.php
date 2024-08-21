@@ -58,8 +58,8 @@ use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
  *
  * @property \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Modules\Media\Models\Media> $media
  * @property int|null                                                                                                   $media_count
- * @property \Modules\Xot\Contracts\ProfileContract|null                                                                       $creator
- * @property \Modules\Xot\Contracts\ProfileContract|null                                                                       $updater
+ * @property \Modules\Xot\Contracts\ProfileContract|null                                                                $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null                                                                $updater
  *
  * @mixin \Eloquent
  */
