@@ -34,8 +34,7 @@ trait HasLikes
     /**
      * param \Modules\User\Models\User|null $user.
      *
-     * @param \Modules\User\Models\User $user
-     *
+     * @param  \Modules\User\Models\User  $user
      * @return void
      */
     public function likedBy($user)
@@ -48,8 +47,7 @@ trait HasLikes
     /**
      * param \Modules\User\Models\User|null $user.
      *
-     * @param \Modules\User\Models\User $user
-     *
+     * @param  \Modules\User\Models\User  $user
      * @return void
      */
     public function dislikedBy($user)
@@ -58,7 +56,7 @@ trait HasLikes
          * @var Like
          */
         $where = $this->likesRelation()->where('user_id', $user->id)->first();
-        if (null !== $where) {
+        if ($where !== null) {
             $where->delete();
         }
 
@@ -79,8 +77,7 @@ trait HasLikes
     /**
      * param \Modules\User\Models\User|null $user.
      *
-     * @param \Modules\User\Models\User $user
-     *
+     * @param  \Modules\User\Models\User  $user
      * @return bool
      */
     public function isLikedBy($user)
