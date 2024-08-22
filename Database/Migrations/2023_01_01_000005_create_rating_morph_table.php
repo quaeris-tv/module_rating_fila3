@@ -9,10 +9,10 @@ use Modules\Rating\Models\Rating;
 use Modules\User\Models\User;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-/**
+/*
  * Class CreateRatingMorphTable.
  */
-return new class () extends XotBaseMigration {
+return new class extends XotBaseMigration {
     /**
      * db up.
      *
