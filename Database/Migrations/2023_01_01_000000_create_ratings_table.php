@@ -9,8 +9,7 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 /**
  * Class CreateRatingsTable.
  */
-class CreateRatingsTable extends XotBaseMigration
-{
+return new class () extends XotBaseMigration {
     /**
      * db up.
      */
@@ -59,4 +58,4 @@ class CreateRatingsTable extends XotBaseMigration
             }
         );
     }
-}
+};

@@ -12,8 +12,7 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 /**
  * Class CreateRatingMorphTable.
  */
-class CreateRatingMorphTable extends XotBaseMigration
-{
+return new class () extends XotBaseMigration {
     /**
      * db up.
      *
@@ -67,4 +66,4 @@ class CreateRatingMorphTable extends XotBaseMigration
             }
         );
     }
-}
+};

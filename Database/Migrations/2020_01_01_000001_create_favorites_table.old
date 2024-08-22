@@ -9,7 +9,7 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 /**
  * Class CreateFavoritesTable.
  */
-class CreateFavoritesTable extends XotBaseMigration
+return new class () extends XotBaseMigration
 {
     /**
      * Run the migrations.
@@ -45,4 +45,4 @@ class CreateFavoritesTable extends XotBaseMigration
     }
 
     // end up
-}// end class
+};// end class
