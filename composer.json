@@ -8,7 +8,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Modules\\Rating\\Providers\\RatingServiceProvider"
+                "Modules\\Rating\\Providers\\RatingServiceProvider",
+                "Modules\\Rating\\Providers\\Filament\\AdminPanelProvider"
             ],
             "aliases": {
 
