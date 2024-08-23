@@ -16,12 +16,10 @@ use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
  *
  * @property \Spatie\SchemalessAttributes\SchemalessAttributes $extra_attributes
  * @property RuleEnum                                          $rule
- *
  * @method static Builder|Rating newModelQuery()
  * @method static Builder|Rating newQuery()
  * @method static Builder|Rating query()
  * @method static Builder|Rating withExtraAttributes()
- *
  * @property int                                           $id
  * @property string|null                                   $related_type
  * @property string|null                                   $created_by
@@ -38,7 +36,6 @@ use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
  * @property bool|null                                     $is_readonly
  * @property int|null                                      $order_column
  * @property \Illuminate\Database\Eloquent\Model|\Eloquent $linkedTo
- *
  * @method static Builder|Rating whereColor($value)
  * @method static Builder|Rating whereCreatedAt($value)
  * @method static Builder|Rating whereCreatedBy($value)
@@ -55,12 +52,10 @@ use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
  * @method static Builder|Rating whereTxt($value)
  * @method static Builder|Rating whereUpdatedAt($value)
  * @method static Builder|Rating whereUpdatedBy($value)
- *
  * @property \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Modules\Media\Models\Media> $media
  * @property int|null                                                                                                   $media_count
  * @property \Modules\Xot\Contracts\ProfileContract|null                                                                $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null                                                                $updater
- *
  * @mixin \Eloquent
  */
 class Rating extends BaseModel implements HasMedia
