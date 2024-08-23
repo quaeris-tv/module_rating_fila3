@@ -6,7 +6,6 @@ use Illuminate\Database\Schema\Blueprint;
 // ----- models -----
 
 use Modules\Rating\Models\Rating;
-
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /*
@@ -27,7 +26,7 @@ return new class extends XotBaseMigration {
                 $table->id();
                 $table->foreignIdFor(Rating::class, 'rating_id')->nullable();
                 $table->nullableMorphs('model');
-                $table->foreignIdFor(\Modules\Xot\Datas\XotData::make()->getUserClass(), 'user_id')->nullable();
+                $table->foreignIdFor(Modules\Xot\Datas\XotData::make()->getUserClass(), 'user_id')->nullable();
                 $table->decimal('value', 10, 3)->nullable();
                 $table->text('note')->nullable();
             }
