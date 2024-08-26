@@ -93,7 +93,7 @@ trait HasRating
             $tmp += $rating->value;
         }
 
-        return $tmp;
+        return intval($tmp);
     }
 
     public function getRatingsPercentageByUser(): array
