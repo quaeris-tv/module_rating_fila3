@@ -76,7 +76,7 @@ trait HasRating
             ->toArray());
     }
 
-    public function getVolumeCredit(?int $rating_id = null): int
+    public function getVolumeCredit(?int $rating_id = null): float
     {
         $ratings = RatingMorph::where('model_id', $this->id)
             ->where('user_id', '!=', null);
