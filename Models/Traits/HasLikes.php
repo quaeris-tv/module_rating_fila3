@@ -32,9 +32,9 @@ trait HasLikes
     }
 
     /**
-     * param \Modules\User\Models\User|null $user.
+     * param \Modules\Xot\Contracts\UserContract|null $user.
      *
-     * @param \Modules\User\Models\User $user
+     * @param \Modules\Xot\Contracts\UserContract|null $user
      *
      * @return void
      */
@@ -46,9 +46,9 @@ trait HasLikes
     }
 
     /**
-     * param \Modules\User\Models\User|null $user.
+     * param \Modules\Xot\Contracts\UserContract|null $user.
      *
-     * @param \Modules\User\Models\User $user
+     * @param \Modules\Xot\Contracts\UserContract|null $user
      *
      * @return void
      */
@@ -77,9 +77,9 @@ trait HasLikes
     }
 
     /**
-     * param \Modules\User\Models\User|null $user.
+     * param \Modules\Xot\Contracts\UserContract|null $user.
      *
-     * @param \Modules\User\Models\User $user
+     * @param \Modules\Xot\Contracts\UserContract|null $user
      *
      * @return bool
      */
