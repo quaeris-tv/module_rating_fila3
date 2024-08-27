@@ -72,7 +72,7 @@ use Modules\Xot\Datas\XotData;
  */
 class RatingMorph extends BaseMorphPivot
 {
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'id',
         'model_id', 'model_type',

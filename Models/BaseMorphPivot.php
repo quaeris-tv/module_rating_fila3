@@ -31,7 +31,7 @@ abstract class BaseMorphPivot extends MorphPivot
     /** @var string */
     protected $connection = 'rating';
 
-    /** @var array<int, string> */
+     /** @var list<string> */
     protected $appends = [];
 
     /** @var string */
@@ -54,7 +54,7 @@ abstract class BaseMorphPivot extends MorphPivot
         // 'published_at',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'id',
         'post_id', 'post_type',
