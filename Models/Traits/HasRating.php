@@ -7,7 +7,9 @@ declare(strict_types=1);
 namespace Modules\Rating\Models\Traits;
 
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Modules\Rating\Models\Rating;
 use Modules\Rating\Models\RatingMorph;
 
@@ -18,6 +20,13 @@ trait HasRating
 {
     public function ratings(): MorphToMany
     {
+        $class = static::class;
+        $alias = Str::of(class_basename($class))->snake()->toString();
+
+        // Relation::morphMap([
+        //    $alias => $class,
+        // ]);
+
         $pivot_class = RatingMorph::class;
         $pivot = app($pivot_class);
         $pivot_table = $pivot->getTable();
