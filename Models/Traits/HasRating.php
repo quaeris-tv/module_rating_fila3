@@ -23,9 +23,9 @@ trait HasRating
         $class = static::class;
         $alias = Str::of(class_basename($class))->snake()->toString();
 
-        // Relation::morphMap([
-        //    $alias => $class,
-        // ]);
+        Relation::morphMap([
+            $alias => $class,
+        ]);
 
         $pivot_class = RatingMorph::class;
         $pivot = app($pivot_class);
