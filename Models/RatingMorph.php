@@ -24,7 +24,6 @@ use Modules\Xot\Datas\XotData;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property int|null                        $auth_user_id
- *
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph query()
@@ -40,7 +39,6 @@ use Modules\Xot\Datas\XotData;
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereRelatedType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereUpdatedBy($value)
- *
  * @property string|null $user_id
  * @property string|null $model_type
  * @property int|null    $model_id
@@ -48,7 +46,6 @@ use Modules\Xot\Datas\XotData;
  * @property int|null    $value
  * @property string|null $note
  * @property string|null $deleted_at
- *
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereIsWinner($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereModelId($value)
@@ -57,17 +54,13 @@ use Modules\Xot\Datas\XotData;
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereRatingId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereValue($value)
- *
  * @property \Illuminate\Database\Eloquent\Model|\Eloquent $model
  * @property \Modules\Blog\Models\Profile|null             $profile
  * @property \Modules\Xot\Contracts\UserContract|null      $user
  * @property string                                        $reward
- *
  * @method static \Illuminate\Database\Eloquent\Builder|RatingMorph whereReward($value)
- *
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
- *
  * @mixin \Eloquent
  */
 class RatingMorph extends BaseMorphPivot
