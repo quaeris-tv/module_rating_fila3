@@ -29,7 +29,7 @@ abstract class BaseMorphPivot extends MorphPivot
     /** @var bool */
     public $timestamps = true;
 
-    /** @var int  */
+    /** @var int */
     protected $perPage = 30;
 
     /** @var string */
@@ -49,6 +49,7 @@ abstract class BaseMorphPivot extends MorphPivot
         'user_id',
         'note',
     ];
+
     protected function casts(): array
     {
         return ['created_at' => 'datetime', 'updated_at' => 'datetime', 'deleted_at' => 'datetime'];

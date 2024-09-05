@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Auth;
 // ---- services -----
 use Modules\Cms\Services\PanelService as Panel;
 use Modules\Rating\Models\Rating;
-use ReflectionException;
 
 // ------ traits ---
 
@@ -82,7 +81,8 @@ trait RatingTrait
     // *
 
     /**
-     * @param  float  $value
+     * @param float $value
+     *
      * @return \Illuminate\Support\Collection
      */
     public function getMyRatingAttribute($value)
@@ -97,11 +97,11 @@ trait RatingTrait
      */
     public function getRatingsAvgAttribute(?float $value): ?float
     {
-        if ($value !== null) {
+        if (null !== $value) {
             return $value;
         }
         $value = $this->ratings->avg('pivot.rating');
-        if ($value !== null) {
+        if (null !== $value) {
             $this->ratings_avg = $value;
             $this->save();
         }
@@ -111,7 +111,7 @@ trait RatingTrait
 
     public function getRatingsCountAttribute(?int $value): ?int
     {
-        if ($value !== null) {
+        if (null !== $value) {
             return $value;
         }
         // Method Illuminate\Support\Collection<int,Modules\Rating\Models\Rating>::count() invoked with 1 parameter, 0 required.
@@ -131,9 +131,8 @@ trait RatingTrait
     */
     // ------ functions ------
     /**
-     *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
-     * @throws ReflectionException
+     * @throws \ReflectionException
      */
     public function ratingAvgHtml(): string
     {

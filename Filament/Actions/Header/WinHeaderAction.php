@@ -28,7 +28,7 @@ class WinHeaderAction extends Action
                 fn (Action $action): array => [
                     Select::make('rating_id')
                         ->label('domanda vincente')
-                        ->options(fn($record) => app(GetRatingOptsByModelAction::class)->execute($record))
+                        ->options(fn ($record) => app(GetRatingOptsByModelAction::class)->execute($record))
                         ->suffixIcon('heroicon-o-question-mark-circle')
                         ->required(),
                 ]

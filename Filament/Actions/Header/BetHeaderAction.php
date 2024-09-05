@@ -33,7 +33,7 @@ class BetHeaderAction extends Action
                         ->required(),
                     Select::make('rating_id')
                         // ->relationship(name: 'ratings', titleAttribute: 'title')
-                        ->options(fn($record) => app(GetRatingOptsByModelAction::class)->execute($record))
+                        ->options(fn ($record) => app(GetRatingOptsByModelAction::class)->execute($record))
                         ->suffixIcon('heroicon-o-question-mark-circle')
                         ->required(),
                     TextInput::make('credits')
