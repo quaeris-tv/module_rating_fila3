@@ -23,9 +23,13 @@ abstract class BaseMorphPivot extends MorphPivot
      */
     public static $snakeAttributes = true;
 
-    /**
-     * @var int
-     */
+    /** @var bool */
+    public $incrementing = true;
+
+    /** @var bool */
+    public $timestamps = true;
+
+    /** @var int  */
     protected $perPage = 30;
 
     /** @var string */
@@ -37,23 +41,6 @@ abstract class BaseMorphPivot extends MorphPivot
     /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var bool */
-    public $incrementing = true;
-
-    /** @var bool */
-    public $timestamps = true;
-
-    // protected $attributes = ['related_type' => 'cuisine_cat'];
-    /**
-     * @var string[]
-     */
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'deleted_at',
-        // 'published_at',
-    ];
-
     /** @var list<string> */
     protected $fillable = [
         'id',
@@ -62,4 +49,8 @@ abstract class BaseMorphPivot extends MorphPivot
         'user_id',
         'note',
     ];
+    protected function casts(): array
+    {
+        return ['created_at' => 'datetime', 'updated_at' => 'datetime', 'deleted_at' => 'datetime'];
+    }
 }

@@ -16,11 +16,6 @@ use Modules\Rating\Actions\HasRating\GetRatingOptsByModelAction;
 
 class BetHeaderAction extends Action
 {
-    public static function getDefaultName(): ?string
-    {
-        return 'bet_action';
-    }
-
     protected function setUp(): void
     {
         parent::setUp();
@@ -38,9 +33,7 @@ class BetHeaderAction extends Action
                         ->required(),
                     Select::make('rating_id')
                         // ->relationship(name: 'ratings', titleAttribute: 'title')
-                        ->options(function ($record) {
-                            return app(GetRatingOptsByModelAction::class)->execute($record);
-                        })
+                        ->options(fn($record) => app(GetRatingOptsByModelAction::class)->execute($record))
                         ->suffixIcon('heroicon-o-question-mark-circle')
                         ->required(),
                     TextInput::make('credits')
@@ -59,5 +52,10 @@ class BetHeaderAction extends Action
                 ArticleAggregate::retrieve($command->articleId)
                     ->rating($command);
             });
+    }
+
+    public static function getDefaultName(): ?string
+    {
+        return 'bet_action';
     }
 }

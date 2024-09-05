@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 // ---- services -----
 use Modules\Cms\Services\PanelService as Panel;
 use Modules\Rating\Models\Rating;
+use ReflectionException;
 
 // ------ traits ---
 
@@ -46,7 +47,7 @@ trait RatingTrait
                 '
             )->leftJoin(
                 'rating_morph',
-                function ($join) {
+                function ($join): void {
                     $join->on('rating_morph.rating_id', 'ratings.id')
                         ->whereRaw('rating_morph.post_type = ratings.related_type')
                         ->where('rating_morph.post_id', $this->id);
@@ -62,7 +63,7 @@ trait RatingTrait
     {
         return $query->leftJoin(
             'rating_morph',
-            function ($join) {
+            function ($join): void {
                 $join->on('rating_morph.post_type = ratings.related_type');
             }
         );
@@ -81,8 +82,7 @@ trait RatingTrait
     // *
 
     /**
-     * @param float $value
-     *
+     * @param  float  $value
      * @return \Illuminate\Support\Collection
      */
     public function getMyRatingAttribute($value)
@@ -97,11 +97,11 @@ trait RatingTrait
      */
     public function getRatingsAvgAttribute(?float $value): ?float
     {
-        if (null !== $value) {
+        if ($value !== null) {
             return $value;
         }
         $value = $this->ratings->avg('pivot.rating');
-        if (null !== $value) {
+        if ($value !== null) {
             $this->ratings_avg = $value;
             $this->save();
         }
@@ -111,7 +111,7 @@ trait RatingTrait
 
     public function getRatingsCountAttribute(?int $value): ?int
     {
-        if (null !== $value) {
+        if ($value !== null) {
             return $value;
         }
         // Method Illuminate\Support\Collection<int,Modules\Rating\Models\Rating>::count() invoked with 1 parameter, 0 required.
@@ -125,22 +125,18 @@ trait RatingTrait
 
     // */
     /*
-    public function setMyRatingAttribute($value){
-    dddx($value);
-    }
-     */
-
+        public function setMyRatingAttribute($value){
+        dddx($value);
+        }
+    */
     // ------ functions ------
-
     /**
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
-     * @throws \ReflectionException
      *
-     * @return string
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws ReflectionException
      */
-    public function ratingAvgHtml()
+    public function ratingAvgHtml(): string
     {
-        $ratings = $this->ratings;
         // Method Illuminate\Support\Collection<int,Modules\Rating\Models\Rating>::count() invoked with 1 parameter, 0 required.
         // $pivot_avg = $ratings->avg('pivot.rating');
         $pivot_avg = $this->ratings_avg;

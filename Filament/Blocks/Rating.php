@@ -35,9 +35,7 @@ class Rating
                     ->options($views),
 
                 Repeater::make('ratings')
-                    ->visible(function (Get $get, $record) use ($primary_lang) {
-                        return $record?->getLocale() == $primary_lang;
-                    })
+                    ->visible(fn(Get $get, $record): bool => $record?->getLocale() === $primary_lang)
                     ->relationship()
                     ->schema([
                         TextInput::make('id')->readonly(),
@@ -67,7 +65,7 @@ class Rating
             // ->reorderableWithButtons()
             // ->addActionLabel('Add member')
             // ->label('Link to article')
-            ->columns('form' === $context ? 2 : 1);
+            ->columns($context === 'form' ? 2 : 1);
     }
 
     // // https://laraveldaily.com/post/filament-repeater-live-calculations-on-update

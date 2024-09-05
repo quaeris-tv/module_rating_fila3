@@ -16,11 +16,9 @@ class GetRatingOptsByModelAction
      */
     public function execute(HasRatingContract $model): array
     {
-        $opts = $model->ratings()
+        return $model->ratings()
             ->wherePivot('user_id', null)
             ->pluck('title', 'ratings.id')
             ->toArray();
-
-        return $opts;
     }
 }

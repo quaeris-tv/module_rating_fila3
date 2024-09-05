@@ -9,7 +9,8 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 /*
  * Class CreateRatingsTable.
  */
-return new class extends XotBaseMigration {
+return new class extends XotBaseMigration
+{
     /**
      * db up.
      */
@@ -17,7 +18,7 @@ return new class extends XotBaseMigration {
     {
         // -- CREATE --
         $this->tableCreate(
-            static function (Blueprint $table) {
+            static function (Blueprint $table): void {
                 $table->id();
                 $table->string('title')->nullable();
                 $table->string('color')->nullable();
@@ -29,7 +30,7 @@ return new class extends XotBaseMigration {
 
         // -- UPDATE --
         $this->tableUpdate(
-            function (Blueprint $table) {
+            function (Blueprint $table): void {
                 if (! $this->hasColumn('title')) {
                     $table->string('title')->nullable();
                 }

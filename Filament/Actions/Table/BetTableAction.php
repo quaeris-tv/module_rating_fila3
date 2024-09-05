@@ -12,11 +12,6 @@ use Filament\Tables\Actions\Action;
 
 class BetTableAction extends Action
 {
-    public static function getDefaultName(): ?string
-    {
-        return 'bet_action';
-    }
-
     protected function setUp(): void
     {
         parent::setUp();
@@ -30,5 +25,10 @@ class BetTableAction extends Action
                     TextInput::make('aa'),
                 ]
             );
+    }
+
+    public static function getDefaultName(): ?string
+    {
+        return 'bet_action';
     }
 }

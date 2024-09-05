@@ -18,27 +18,11 @@ trait HasLikes
     }
 
     /**
-     * Undocumented function.
-     *
-     * @return void
-     */
-    protected static function bootHasLikes()
-    {
-        static::deleting(function ($model) {
-            $model->likesRelation()->delete();
-
-            $model->unsetRelation('likesRelation');
-        });
-    }
-
-    /**
      * param \Modules\Xot\Contracts\UserContract|null $user.
      *
-     * @param \Modules\Xot\Contracts\UserContract|null $user
-     *
-     * @return void
+     * @param  \Modules\Xot\Contracts\UserContract|null  $user
      */
-    public function likedBy($user)
+    public function likedBy($user): void
     {
         $this->likesRelation()->create(['user_id' => $user->id]);
 
@@ -48,17 +32,15 @@ trait HasLikes
     /**
      * param \Modules\Xot\Contracts\UserContract|null $user.
      *
-     * @param \Modules\Xot\Contracts\UserContract|null $user
-     *
-     * @return void
+     * @param  \Modules\Xot\Contracts\UserContract|null  $user
      */
-    public function dislikedBy($user)
+    public function dislikedBy($user): void
     {
         /**
          * @var Like
          */
         $where = $this->likesRelation()->where('user_id', $user->id)->first();
-        if (null !== $where) {
+        if ($where !== null) {
             $where->delete();
         }
 
@@ -79,12 +61,25 @@ trait HasLikes
     /**
      * param \Modules\Xot\Contracts\UserContract|null $user.
      *
-     * @param \Modules\Xot\Contracts\UserContract|null $user
-     *
+     * @param  \Modules\Xot\Contracts\UserContract|null  $user
      * @return bool
      */
     public function isLikedBy($user)
     {
         return $this->likesRelation()->where('user_id', $user->id)->exists();
+    }
+
+    /**
+     * Undocumented function.
+     *
+     * @return void
+     */
+    protected static function bootHasLikes()
+    {
+        static::deleting(function ($model): void {
+            $model->likesRelation()->delete();
+
+            $model->unsetRelation('likesRelation');
+        });
     }
 }

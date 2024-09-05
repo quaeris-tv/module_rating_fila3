@@ -11,18 +11,17 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 /*
  * Class CreateRatingMorphTable.
  */
-return new class extends XotBaseMigration {
+return new class extends XotBaseMigration
+{
     /**
      * db up.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         // ----- create -----
         // -- CREATE --
         $this->tableCreate(
-            static function (Blueprint $table) {
+            static function (Blueprint $table): void {
                 $table->id();
                 $table->foreignIdFor(Rating::class, 'rating_id')->nullable();
                 $table->nullableMorphs('model');
@@ -34,7 +33,7 @@ return new class extends XotBaseMigration {
 
         // -- UPDATE --
         $this->tableUpdate(
-            function (Blueprint $table) {
+            function (Blueprint $table): void {
                 if (! $this->hasColumn('model_id')) {
                     $table->nullableMorphs('model');
                 }

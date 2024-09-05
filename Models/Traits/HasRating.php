@@ -66,7 +66,7 @@ trait HasRating
         foreach ($ratings as $key => $rating) {
             $ratings_array[$key] = $rating->toArray();
             if (empty($rating->getFirstMediaUrl('rating'))) {
-                $rating->addMediaFromUrl('https://picsum.photos/id/'.rand(1, 200).'/300/200')
+                $rating->addMediaFromUrl('https://picsum.photos/id/'.random_int(1, 200).'/300/200')
                     ->toMediaCollection('rating');
             }
             $ratings_array[$key]['image'] = $rating->getFirstMediaUrl('rating');
@@ -90,7 +90,7 @@ trait HasRating
         $ratings = RatingMorph::where('model_id', $this->id)
             ->where('user_id', '!=', null);
 
-        if (null != $rating_id) {
+        if (null !== $rating_id) {
             $ratings = $ratings->where('rating_id', $rating_id);
         }
 
@@ -102,7 +102,7 @@ trait HasRating
             $tmp += $rating->value;
         }
 
-        return intval($tmp);
+        return (int) $tmp;
     }
 
     public function getRatingsPercentageByUser(): array
@@ -115,7 +115,7 @@ trait HasRating
                 ->where('user_id', '!=', null)
                 ->count();
 
-            if (0 == $b) {
+            if (0 === $b) {
                 $b = 1;
             }
 

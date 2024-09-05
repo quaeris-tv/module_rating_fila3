@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Modules\Rating\Models;
 
 use Illuminate\Database\Eloquent\Model;
-// //use Laravel\Scout\Searchable;
-// ---------- traits
 use Modules\Xot\Traits\Updater;
 
 /**
@@ -25,12 +23,14 @@ abstract class BaseModel extends Model
      */
     public static $snakeAttributes = true;
 
-    /**
-     * @var int
-     */
-    protected $perPage = 30;
+    /** @var bool */
+    public $incrementing = true;
 
-    // use Searchable;
+    /** @var bool */
+    public $timestamps = true;
+
+    /** @var int */
+    protected $perPage = 30;
 
     /** @var string */
     protected $connection = 'rating';
@@ -38,30 +38,22 @@ abstract class BaseModel extends Model
     /** @var list<string> */
     protected $fillable = ['id'];
 
-    /** @return array<string, string> */
-    protected function casts(): array
-    {
-        return [
-            // 'published_at' => 'datetime:Y-m-d', // da verificare
-        ];
-    }
-
-    /**
-     * @var string[]
-     */
-    protected $dates = ['published_at', 'created_at', 'updated_at'];
-
     /** @var string */
     protected $primaryKey = 'id';
-
-    /** @var bool */
-    public $incrementing = true;
 
     /** @var list<string> */
     protected $hidden = [
         // 'password'
     ];
 
-    /** @var bool */
-    public $timestamps = true;
+    /** @return array<string, string> */
+    protected function casts(): array
+    {
+        return [
+            // 'published_at' => 'datetime:Y-m-d', // da verificare
+            'published_at' => 'datetime',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+        ];
+    }
 }

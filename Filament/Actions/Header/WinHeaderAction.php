@@ -15,11 +15,6 @@ use Modules\Rating\Actions\HasRating\GetRatingOptsByModelAction;
 
 class WinHeaderAction extends Action
 {
-    public static function getDefaultName(): ?string
-    {
-        return 'win_action';
-    }
-
     protected function setUp(): void
     {
         parent::setUp();
@@ -33,9 +28,7 @@ class WinHeaderAction extends Action
                 fn (Action $action): array => [
                     Select::make('rating_id')
                         ->label('domanda vincente')
-                        ->options(function ($record) {
-                            return app(GetRatingOptsByModelAction::class)->execute($record);
-                        })
+                        ->options(fn($record) => app(GetRatingOptsByModelAction::class)->execute($record))
                         ->suffixIcon('heroicon-o-question-mark-circle')
                         ->required(),
                 ]
@@ -48,5 +41,10 @@ class WinHeaderAction extends Action
                 ArticleAggregate::retrieve($command->articleId)
                     ->winner($command);
             });
+    }
+
+    public static function getDefaultName(): ?string
+    {
+        return 'win_action';
     }
 }
