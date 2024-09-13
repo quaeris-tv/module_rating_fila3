@@ -10,19 +10,22 @@ namespace Modules\Rating\Contracts;
 interface HasLikeContract
 {
     /**
-     * @param  \Modules\Xot\Contracts\UserContract|null  $user
+     * @param \Modules\Xot\Contracts\UserContract|null $user
+     *
      * @return bool
      */
     public function isLikedBy($user);
 
     /**
-     * @param  \Modules\Xot\Contracts\UserContract|null  $user
+     * @param \Modules\Xot\Contracts\UserContract|null $user
+     *
      * @return void
      */
     public function likedBy($user);
 
     /**
-     * @param  \Modules\Xot\Contracts\UserContract|null  $user
+     * @param \Modules\Xot\Contracts\UserContract|null $user
+     *
      * @return void
      */
     public function dislikedBy($user);
