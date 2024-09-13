@@ -90,7 +90,7 @@ trait HasRating
         $ratings = RatingMorph::where('model_id', $this->id)
             ->where('user_id', '!=', null);
 
-        if (null !== $rating_id) {
+        if ($rating_id !== null) {
             $ratings = $ratings->where('rating_id', $rating_id);
         }
 
@@ -115,7 +115,7 @@ trait HasRating
                 ->where('user_id', '!=', null)
                 ->count();
 
-            if (0 === $b) {
+            if ($b === 0) {
                 $b = 1;
             }
 
@@ -136,7 +136,7 @@ trait HasRating
         $result = [];
 
         $total_volume = $this->getVolumeCredit();
-        if (0 == $total_volume) {
+        if ($total_volume == 0) {
             $total_volume = 1;
         }
 

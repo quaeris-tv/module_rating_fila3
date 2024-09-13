@@ -9,6 +9,4 @@ namespace Modules\Rating\Aggregates;
 
 use Spatie\EventSourcing\AggregateRoots\AggregateRoot;
 
-class BettableAggregate extends AggregateRoot
-{
-}
+class BettableAggregate extends AggregateRoot {}
