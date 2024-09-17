@@ -38,7 +38,7 @@ abstract class BaseModelLang extends Model
     /** @var string */
     protected $connection = 'rating'; // this will use the specified database connection
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = ['id'];
 
     /** @return array<string, string> */
