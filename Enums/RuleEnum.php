@@ -12,7 +12,7 @@ enum RuleEnum: string implements HasLabel
     case ZeroFive = 'numeric|min:0|max:5';
     case ZeroOrMin4Max25 = 'min:0|max:25|not_in:1,2,3';
 
-    public function getLabel(): ?string
+    public function getLabel(): string
     {
         return __('rating::enums.'.$this->name.'.label');
 
