@@ -24,6 +24,8 @@ use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
  * @method static Builder|Rating withExtraAttributes()
  *
  * @property int                                           $id
+ * @property int                                           $user_id
+ * @property float                                         $value
  * @property string|null                                   $related_type
  * @property string|null                                   $created_by
  * @property string|null                                   $updated_by
