@@ -76,34 +76,14 @@ trait HasRating
         return $ratings_array;
     }
 
-    public function getBettingUsers(): int
-    {
-        return count(RatingMorph::where('model_id', $this->id)
-            ->where('user_id', '!=', null)
-            ->groupBy('user_id')
-            ->get()
-            ->toArray());
-    }
-
-    public function getVolumeCredit(?int $rating_id = null): float
-    {
-        $ratings = RatingMorph::where('model_id', $this->id)
-            ->where('user_id', '!=', null);
-
-        if (null !== $rating_id) {
-            $ratings = $ratings->where('rating_id', $rating_id);
-        }
-
-        $ratings = $ratings->get();
-
-        $tmp = 0;
-
-        foreach ($ratings as $rating) {
-            $tmp += $rating->value;
-        }
-
-        return (int) $tmp;
-    }
+    // public function getBettingUsers(): int
+    // {
+    //     return count(RatingMorph::where('model_id', $this->id)
+    //         ->where('user_id', '!=', null)
+    //         ->groupBy('user_id')
+    //         ->get()
+    //         ->toArray());
+    // }
 
     public function getRatingsPercentageByUser(): array
     {
@@ -130,20 +110,20 @@ trait HasRating
         return $result;
     }
 
-    public function getRatingsPercentageByVolume(): array
-    {
-        $ratings_options = $this->getOptionRatingsIdTitle();
-        $result = [];
+    // public function getRatingsPercentageByVolume(): array
+    // {
+    //     $ratings_options = $this->getOptionRatingsIdTitle();
+    //     $result = [];
 
-        $total_volume = $this->getVolumeCredit();
-        if (0 == $total_volume) {
-            $total_volume = 1;
-        }
+    //     $total_volume = $this->getVolumeCredit();
+    //     if (0 == $total_volume) {
+    //         $total_volume = 1;
+    //     }
 
-        foreach ($ratings_options as $key => $value) {
-            $result[$key] = round(($this->getVolumeCredit($key) * 100) / $total_volume, 0);
-        }
+    //     foreach ($ratings_options as $key => $value) {
+    //         $result[$key] = round(($this->getVolumeCredit($key) * 100) / $total_volume, 0);
+    //     }
 
-        return $result;
-    }
+    //     return $result;
+    // }
 }
