@@ -9,11 +9,12 @@ namespace Modules\Rating\Filament\Actions\Header;
 
 use Filament\Actions\Action;
 use Filament\Forms\Components\Select;
-use Modules\Blog\Aggregates\ArticleAggregate;
-use Modules\Blog\Datas\RatingArticleWinnerData;
+use Filament\Forms\Components\TextInput;
+use Modules\Predict\Aggregates\ArticleAggregate;
+use Modules\Predict\Datas\RatingArticleData;
 use Modules\Rating\Actions\HasRating\GetRatingOptsByModelAction;
 
-class WinHeaderAction extends Action
+class BetHeaderAction extends Action
 {
     protected function setUp(): void
     {
@@ -21,30 +22,40 @@ class WinHeaderAction extends Action
         $this->translateLabel();
 
         $this->label('')
-            ->icon('heroicon-o-trophy')
-            ->tooltip(trans('rating::txt.win'))
+            ->icon('icon-bottlecap')
+            ->tooltip(trans('rating::txt.bet'))
             ->modalWidth('xl')
             ->form(
                 fn (Action $action): array => [
+                    Select::make('user_id')
+                        ->relationship(name: 'user', titleAttribute: 'name')
+                        ->suffixIcon('heroicon-o-user')
+                        ->required(),
                     Select::make('rating_id')
-                        ->label('domanda vincente')
+                        // ->relationship(name: 'ratings', titleAttribute: 'title')
                         ->options(fn ($record) => app(GetRatingOptsByModelAction::class)->execute($record))
                         ->suffixIcon('heroicon-o-question-mark-circle')
                         ->required(),
+                    TextInput::make('credits')
+                        ->integer()
+                        ->required()
+                        ->suffixIcon('icon-bottlecap'),
                 ]
             )->action(function (array $data, $record): void {
-                $command = RatingArticleWinnerData::from([
+                $command = RatingArticleData::from([
+                    'userId' => $data['user_id'],
                     'articleId' => $record->getKey(),
                     'ratingId' => $data['rating_id'],
+                    'credit' => $data['credits'],
                 ]);
 
                 ArticleAggregate::retrieve($command->articleId)
-                    ->winner($command);
+                    ->rating($command);
             });
     }
 
     public static function getDefaultName(): ?string
     {
-        return 'win_action';
+        return 'bet_action';
     }
 }
