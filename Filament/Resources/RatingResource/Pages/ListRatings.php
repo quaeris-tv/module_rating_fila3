@@ -4,30 +4,22 @@ declare(strict_types=1);
 
 namespace Modules\Rating\Filament\Resources\RatingResource\Pages;
 
-
-
-use Exception;
-use Filament\Actions;
-use Filament\Tables\Table;
-use Webmozart\Assert\Assert;
 use Filament\Actions\CreateAction;
-use Filament\Tables\Actions\Action;
-use Modules\UI\Enums\TableLayoutEnum;
+use Filament\Resources\Pages\ListRecords;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Actions\ActionGroup;
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Enums\FiltersLayout;
-use Filament\Resources\Pages\ListRecords;
-use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Columns\Layout\Stack;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\ActionsPosition;
-use Modules\Xot\Filament\Traits\TransTrait;
-use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Enums\FiltersLayout;
+use Filament\Tables\Table;
 use Modules\Rating\Filament\Resources\RatingResource;
+use Modules\UI\Enums\TableLayoutEnum;
 use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
+use Modules\Xot\Filament\Traits\TransTrait;
 
 class ListRatings extends ListRecords
 {
@@ -35,13 +27,12 @@ class ListRatings extends ListRecords
 
     public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
 
-
     protected static string $resource = RatingResource::class;
 
-     protected function getHeaderActions(): array
+    protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            CreateAction::make(),
         ];
     }
 
@@ -51,8 +42,6 @@ class ListRatings extends ListRecords
             TableLayoutToggleTableAction::make(),
         ];
     }
-
-  
 
     public function getGridTableColumns(): array
     {
@@ -65,8 +54,8 @@ class ListRatings extends ListRecords
     {
         return [
             TextColumn::make('id')->sortable()->searchable(),
-            //TextColumn::make('extra_attributes.type')->label('type'),
-            //TextColumn::make('extra_attributes.anno')->label('anno'),
+            // TextColumn::make('extra_attributes.type')->label('type'),
+            // TextColumn::make('extra_attributes.anno')->label('anno'),
             TextColumn::make('title')->sortable()->searchable(),
             TextColumn::make('rule')->badge(),
             // TextColumn::make('is_readonly'),
@@ -87,7 +76,6 @@ class ListRatings extends ListRecords
     public function getTableActions(): array
     {
         return [
-            
             ViewAction::make()
                 ->label(''),
             EditAction::make()
