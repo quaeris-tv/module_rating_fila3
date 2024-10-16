@@ -48,6 +48,7 @@ class RatingResource extends XotBaseResource
             ])->columns(3);
     }
 
+    /*
     public static function table(Table $table): Table
     {
         return $table
@@ -72,6 +73,7 @@ class RatingResource extends XotBaseResource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
+    */
 
     public static function getRelations(): array
     {
