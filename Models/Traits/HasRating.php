@@ -40,41 +40,41 @@ trait HasRating
             ->withTimestamps();
     }
 
-    public function getOptionRatingsIdTitle(): array
-    {
-        // return $this->ratings()->where('user_id', null)->get();
-        return Arr::pluck($this->ratings()->where('user_id', null)->get()->toArray(), 'title', 'id');
-    }
+    // public function getOptionRatingsIdTitle(): array
+    // {
+    //     // return $this->ratings()->where('user_id', null)->get();
+    //     return Arr::pluck($this->ratings()->where('user_id', null)->get()->toArray(), 'title', 'id');
+    // }
 
-    public function getOptionRatingsIdColor(): array
-    {
-        // return $this->ratings()->where('user_id', null)->get();
-        return Arr::pluck($this->ratings()->where('user_id', null)->get()->toArray(), 'color', 'id');
-    }
+    // public function getOptionRatingsIdColor(): array
+    // {
+    //     // return $this->ratings()->where('user_id', null)->get();
+    //     return Arr::pluck($this->ratings()->where('user_id', null)->get()->toArray(), 'color', 'id');
+    // }
 
-    public function getArrayRatingsWithImage(): array
-    {
-        $ratings = $this
-            ->ratings()
-        // ->with('media')
-            ->where('user_id', null)
-            ->get();
-        // ->toArray()
+    // public function getArrayRatingsWithImage(): array
+    // {
+    //     $ratings = $this
+    //         ->ratings()
+    //     // ->with('media')
+    //         ->where('user_id', null)
+    //         ->get();
+    //     // ->toArray()
 
-        $ratings_array = [];
+    //     $ratings_array = [];
 
-        foreach ($ratings as $key => $rating) {
-            $ratings_array[$key] = $rating->toArray();
-            if (empty($rating->getFirstMediaUrl('rating'))) {
-                $rating->addMediaFromUrl('https://picsum.photos/id/'.random_int(1, 200).'/300/200')
-                    ->toMediaCollection('rating');
-            }
-            $ratings_array[$key]['image'] = $rating->getFirstMediaUrl('rating');
-            $ratings_array[$key]['effect'] = false;
-        }
+    //     foreach ($ratings as $key => $rating) {
+    //         $ratings_array[$key] = $rating->toArray();
+    //         if (empty($rating->getFirstMediaUrl('rating'))) {
+    //             $rating->addMediaFromUrl('https://picsum.photos/id/'.random_int(1, 200).'/300/200')
+    //                 ->toMediaCollection('rating');
+    //         }
+    //         $ratings_array[$key]['image'] = $rating->getFirstMediaUrl('rating');
+    //         $ratings_array[$key]['effect'] = false;
+    //     }
 
-        return $ratings_array;
-    }
+    //     return $ratings_array;
+    // }
 
     // public function getBettingUsers(): int
     // {
