@@ -85,30 +85,30 @@ trait HasRating
     //         ->toArray());
     // }
 
-    public function getRatingsPercentageByUser(): array
-    {
-        $ratings_options = $this->getOptionRatingsIdTitle();
-        $result = [];
+    // public function getRatingsPercentageByUser(): array
+    // {
+    //     $ratings_options = $this->getOptionRatingsIdTitle();
+    //     $result = [];
 
-        foreach ($ratings_options as $key => $value) {
-            $b = RatingMorph::where('model_id', $this->id)
-                ->where('user_id', '!=', null)
-                ->count();
+    //     foreach ($ratings_options as $key => $value) {
+    //         $b = RatingMorph::where('model_id', $this->id)
+    //             ->where('user_id', '!=', null)
+    //             ->count();
 
-            if (0 === $b) {
-                $b = 1;
-            }
+    //         if (0 === $b) {
+    //             $b = 1;
+    //         }
 
-            $a = RatingMorph::where('model_id', $this->id)
-                ->where('user_id', '!=', null)
-                ->where('rating_id', $key)
-                ->count();
+    //         $a = RatingMorph::where('model_id', $this->id)
+    //             ->where('user_id', '!=', null)
+    //             ->where('rating_id', $key)
+    //             ->count();
 
-            $result[$key] = round((100 * $a) / $b, 0);
-        }
+    //         $result[$key] = round((100 * $a) / $b, 0);
+    //     }
 
-        return $result;
-    }
+    //     return $result;
+    // }
 
     // public function getRatingsPercentageByVolume(): array
     // {
