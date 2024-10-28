@@ -38,7 +38,8 @@ class Rating
                     ->visible(fn (Get $get, $record): bool => $record?->getLocale() === $primary_lang)
                     ->relationship()
                     ->schema([
-                        TextInput::make('id')->readonly(),
+                        // TextInput::make('id')->readonly(),
+                        TextInput::make('id')->disabled(),
                         TextInput::make('title')->required(),
                         ColorPicker::make('color'),
                         SpatieMediaLibraryFileUpload::make('rating')
