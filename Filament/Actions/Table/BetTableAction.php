@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @see https://coderflex.com/blog/create-advanced-filters-with-filament
  */
@@ -16,15 +17,12 @@ class BetTableAction extends Action
     {
         parent::setUp();
         $this->translateLabel();
-
         $this->label('')
             ->tooltip(trans('rating:txt.bet'))
             ->modalWidth('xl')
-            ->form(
-                fn (Action $action): array => [
+            ->form(fn (Action $action): array => [
                     TextInput::make('aa'),
-                ]
-            );
+                ]);
     }
 
     public static function getDefaultName(): ?string

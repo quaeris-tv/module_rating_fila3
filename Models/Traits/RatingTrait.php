@@ -42,7 +42,7 @@ trait RatingTrait
                 'ratings.*,
                 count(value) as rating_count,
                 avg(value) as rating_avg,
-                sum(if(user_id="'.$user_id.'",value,0)) AS rating_my
+                sum(if(user_id="' . $user_id . '",value,0)) AS rating_my
                 '
             )->leftJoin(
                 'rating_morph',
@@ -142,8 +142,8 @@ trait RatingTrait
         // $pivot_cout = $ratings->count('pivot.rating');
         $pivot_cout = $this->ratings_count;
 
-        $msg = '<div class="rateit" data-rateit-value="'.$pivot_avg.'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>';
-        $msg .= '('.$pivot_avg.') '.$pivot_cout.' Votes ';
+        $msg = '<div class="rateit" data-rateit-value="' . $pivot_avg . '" data-rateit-ispreset="true" data-rateit-readonly="true"></div>';
+        $msg .= '(' . $pivot_avg . ') ' . $pivot_cout . ' Votes ';
 
         // $rating_url = Panel::make()->get($this)->relatedUrl('my_rating','index_edit');
         // $rating_url = Panel::make()->get($this)->url('show').'?_act=rate';
@@ -154,16 +154,16 @@ trait RatingTrait
         return $msg.'<a data-href="'.$rating_url.'" class="btn btn-danger" data-toggle="modal" data-target="#myModalAjax" data-title="Rate it">
         Rate It </a>';
         */
-        $title = 'Vota '.$this->title;
+        $title = 'Vota ' . $this->title;
 
-        $btn = '<button type="button" class="btn btn-red btn-danger" data-toggle="modal" data-target="#vueModal" data-title="'.$title.'" data-href="'.$rating_url.'">
+        $btn = '<button type="button" class="btn btn-red btn-danger" data-toggle="modal" data-target="#vueModal" data-title="' . $title . '" data-href="' . $rating_url . '">
         <span class="font-white"><i class="fa fa-star"></i> Vota ! </span>
         </button>';
 
-        $btn_iframe = '<button type="button" class="btn btn-red btn-danger" data-toggle="modal" data-target="#vueIframeModal" data-title="'.$title.'" data-href="'.$rating_url.'">
+        $btn_iframe = '<button type="button" class="btn btn-red btn-danger" data-toggle="modal" data-target="#vueIframeModal" data-title="' . $title . '" data-href="' . $rating_url . '">
         <span class="font-white"><i class="fa fa-star"></i> Vota ! </span>
         </button>';
 
-        return $msg.$btn.$btn_iframe;
+        return $msg . $btn . $btn_iframe;
     }
 }
