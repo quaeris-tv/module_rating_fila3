@@ -1,7 +1,9 @@
 <?php
+
 /**
  * --.
  */
+
 declare(strict_types=1);
 
 namespace Modules\Rating\Models\Traits;
@@ -22,18 +24,15 @@ trait HasRating
     {
         $class = static::class;
         $alias = Str::of(class_basename($class))->snake()->toString();
-
         Relation::morphMap([
             $alias => $class,
         ]);
-
         $pivot_class = RatingMorph::class;
         $pivot = app($pivot_class);
         $pivot_table = $pivot->getTable();
         $pivot_db_name = $pivot->getConnection()->getDatabaseName();
-        $pivot_table_full = $pivot_db_name.'.'.$pivot_table;
+        $pivot_table_full = $pivot_db_name . '.' . $pivot_table;
         $pivot_fields = $pivot->getFillable();
-
         return $this->morphToMany(Rating::class, 'model', $pivot_table_full)
             ->using($pivot_class)
             ->withPivot($pivot_fields)
@@ -59,14 +58,13 @@ trait HasRating
         // ->with('media')
             ->where('user_id', null)
             ->get();
-        // ->toArray()
+// ->toArray()
 
         $ratings_array = [];
-
         foreach ($ratings as $key => $rating) {
             $ratings_array[$key] = $rating->toArray();
             if (empty($rating->getFirstMediaUrl('rating'))) {
-                $rating->addMediaFromUrl('https://picsum.photos/id/'.random_int(1, 200).'/300/200')
+                $rating->addMediaFromUrl('https://picsum.photos/id/' . random_int(1, 200) . '/300/200')
                     ->toMediaCollection('rating');
             }
             $ratings_array[$key]['image'] = $rating->getFirstMediaUrl('rating');
@@ -89,12 +87,10 @@ trait HasRating
     {
         $ratings_options = $this->getOptionRatingsIdTitle();
         $result = [];
-
         foreach ($ratings_options as $key => $value) {
             $b = RatingMorph::where('model_id', $this->id)
                 ->where('user_id', '!=', null)
                 ->count();
-
             if (0 === $b) {
                 $b = 1;
             }
@@ -103,7 +99,6 @@ trait HasRating
                 ->where('user_id', '!=', null)
                 ->where('rating_id', $key)
                 ->count();
-
             $result[$key] = round((100 * $a) / $b, 0);
         }
 

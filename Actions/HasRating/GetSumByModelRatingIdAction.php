@@ -23,7 +23,7 @@ class GetSumByModelRatingIdAction
             $opts = $opts->wherePivot('rating_id', $rating_id);
         }
         $opts = (float) $opts->sum('rating_morph.value');
-        Assert::float($opts, '['.__LINE__.']['.__FILE__.']');
+        Assert::float($opts, '[' . __LINE__ . '][' . __FILE__ . ']');
 
         return $opts;
     }
