@@ -31,8 +31,9 @@ trait HasRating
         $pivot = app($pivot_class);
         $pivot_table = $pivot->getTable();
         $pivot_db_name = $pivot->getConnection()->getDatabaseName();
-        $pivot_table_full = $pivot_db_name . '.' . $pivot_table;
+        $pivot_table_full = $pivot_db_name.'.'.$pivot_table;
         $pivot_fields = $pivot->getFillable();
+
         return $this->morphToMany(Rating::class, 'model', $pivot_table_full)
             ->using($pivot_class)
             ->withPivot($pivot_fields)
@@ -58,13 +59,13 @@ trait HasRating
         // ->with('media')
             ->where('user_id', null)
             ->get();
-// ->toArray()
+        // ->toArray()
 
         $ratings_array = [];
         foreach ($ratings as $key => $rating) {
             $ratings_array[$key] = $rating->toArray();
             if (empty($rating->getFirstMediaUrl('rating'))) {
-                $rating->addMediaFromUrl('https://picsum.photos/id/' . random_int(1, 200) . '/300/200')
+                $rating->addMediaFromUrl('https://picsum.photos/id/'.random_int(1, 200).'/300/200')
                     ->toMediaCollection('rating');
             }
             $ratings_array[$key]['image'] = $rating->getFirstMediaUrl('rating');

@@ -21,8 +21,8 @@ class BetTableAction extends Action
             ->tooltip(trans('rating:txt.bet'))
             ->modalWidth('xl')
             ->form(fn (Action $action): array => [
-                    TextInput::make('aa'),
-                ]);
+                TextInput::make('aa'),
+            ]);
     }
 
     public static function getDefaultName(): ?string

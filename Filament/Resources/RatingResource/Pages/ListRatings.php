@@ -39,16 +39,15 @@ class ListRatings extends XotBaseListRecords
             IconColumn::make('is_readonly')
                 ->boolean(),
         ];
+
         return [
-           
             // TextColumn::make('extra_attributes.type')->label('type'),
             // TextColumn::make('extra_attributes.anno')->label('anno'),
-           
-            
+
             // TextColumn::make('is_readonly'),
             // TextColumn::make('is_disabled'),
             // ToggleColumn::make('is_readonly'),
-            
+
             // TextColumn::make('color'),
         ];
     }

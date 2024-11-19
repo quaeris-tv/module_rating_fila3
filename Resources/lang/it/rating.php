@@ -27,8 +27,8 @@ return [
         'area' => ['label' => 'Area'],
         'parent' => ['label' => 'Asset genitore'],
         'name' => ['label' => 'Nome'],
-        'is_disabled' => ['label'=>'is_disabled'],
-        'is_readonly' => ['label'=>'is_readonly'],
+        'is_disabled' => ['label' => 'is_disabled'],
+        'is_readonly' => ['label' => 'is_readonly'],
     ],
     'actions' => [
         'enable' => [
