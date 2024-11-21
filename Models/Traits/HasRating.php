@@ -1,7 +1,9 @@
 <?php
+
 /**
  * --.
  */
+
 declare(strict_types=1);
 
 namespace Modules\Rating\Models\Traits;
@@ -22,11 +24,9 @@ trait HasRating
     {
         $class = static::class;
         $alias = Str::of(class_basename($class))->snake()->toString();
-
         Relation::morphMap([
             $alias => $class,
         ]);
-
         $pivot_class = RatingMorph::class;
         $pivot = app($pivot_class);
         $pivot_table = $pivot->getTable();
@@ -62,7 +62,6 @@ trait HasRating
         // ->toArray()
 
         $ratings_array = [];
-
         foreach ($ratings as $key => $rating) {
             $ratings_array[$key] = $rating->toArray();
             if (empty($rating->getFirstMediaUrl('rating'))) {
@@ -89,12 +88,10 @@ trait HasRating
     {
         $ratings_options = $this->getOptionRatingsIdTitle();
         $result = [];
-
         foreach ($ratings_options as $key => $value) {
             $b = RatingMorph::where('model_id', $this->id)
                 ->where('user_id', '!=', null)
                 ->count();
-
             if (0 === $b) {
                 $b = 1;
             }
@@ -103,7 +100,6 @@ trait HasRating
                 ->where('user_id', '!=', null)
                 ->where('rating_id', $key)
                 ->count();
-
             $result[$key] = round((100 * $a) / $b, 0);
         }
 

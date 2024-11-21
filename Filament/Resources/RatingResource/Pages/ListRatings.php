@@ -4,65 +4,50 @@ declare(strict_types=1);
 
 namespace Modules\Rating\Filament\Resources\RatingResource\Pages;
 
-use Filament\Actions\CreateAction;
-use Filament\Resources\Pages\ListRecords;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Table;
 use Modules\Rating\Filament\Resources\RatingResource;
-use Modules\UI\Enums\TableLayoutEnum;
-use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
-use Modules\Xot\Filament\Traits\TransTrait;
+use Modules\Xot\Filament\Pages\XotBaseListRecords;
 
-class ListRatings extends ListRecords
+class ListRatings extends XotBaseListRecords
 {
-    use TransTrait;
-
-    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
-
     protected static string $resource = RatingResource::class;
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            CreateAction::make(),
-        ];
-    }
-
-    protected function getTableHeaderActions(): array
-    {
-        return [
-            TableLayoutToggleTableAction::make(),
-        ];
-    }
-
-    public function getGridTableColumns(): array
-    {
-        return [
-            Stack::make($this->getListTableColumns()),
-        ];
-    }
 
     public function getListTableColumns(): array
     {
         return [
-            TextColumn::make('id')->sortable()->searchable(),
+            TextColumn::make('id')
+                ->label('ID')
+                ->sortable()
+                ->searchable(),
+            TextColumn::make('title')
+                ->label('title')
+                ->sortable()
+                ->searchable(),
+            TextColumn::make('rule')
+                ->label('rule')
+                ->badge(),
+            IconColumn::make('is_disabled')
+                ->boolean(),
+            IconColumn::make('is_readonly')
+                ->boolean(),
+        ];
+
+        return [
             // TextColumn::make('extra_attributes.type')->label('type'),
             // TextColumn::make('extra_attributes.anno')->label('anno'),
-            TextColumn::make('title')->sortable()->searchable(),
-            TextColumn::make('rule')->badge(),
+
             // TextColumn::make('is_readonly'),
             // TextColumn::make('is_disabled'),
             // ToggleColumn::make('is_readonly'),
-            IconColumn::make('is_disabled')->boolean(),
-            IconColumn::make('is_readonly')->boolean(),
+
             // TextColumn::make('color'),
         ];
     }
