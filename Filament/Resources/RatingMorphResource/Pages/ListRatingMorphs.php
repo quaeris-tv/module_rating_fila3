@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Modules\Rating\Filament\Resources\RatingMorphResource\Pages;
 
 use Filament\Pages\Actions;
-use Modules\Xot\Filament\Pages\XotBaseListRecords;
 use Modules\Rating\Filament\Resources\RatingMorphResource;
+use Modules\Xot\Filament\Pages\XotBaseListRecords;
 
 class ListRatingMorphs extends XotBaseListRecords
 {
