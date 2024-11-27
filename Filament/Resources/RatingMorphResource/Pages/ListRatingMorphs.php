@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Modules\Rating\Filament\Resources\RatingMorphResource\Pages;
 
 use Filament\Pages\Actions;
-use Filament\Resources\Pages\ListRecords;
+use Modules\Xot\Filament\Pages\XotBaseListRecords;
 use Modules\Rating\Filament\Resources\RatingMorphResource;
 
-class ListRatingMorphs extends ListRecords
+class ListRatingMorphs extends XotBaseListRecords
 {
     protected static string $resource = RatingMorphResource::class;
 
