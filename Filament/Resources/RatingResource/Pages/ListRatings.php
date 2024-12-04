@@ -24,15 +24,15 @@ class ListRatings extends XotBaseListRecords
     {
         return [
             TextColumn::make('id')
-                
+
                 ->sortable()
                 ->searchable(),
             TextColumn::make('title')
-                
+
                 ->sortable()
                 ->searchable(),
             TextColumn::make('rule')
-                
+
                 ->badge(),
             IconColumn::make('is_disabled')
                 ->boolean(),
