@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\Rating\Filament\Blocks;
 
+use Filament\Forms\Components\Actions\Action;
+use Filament\Forms\Components\Builder\Block;
+use Filament\Forms\Components\ColorPicker;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
-use Modules\Xot\Datas\XotData;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\ColorPicker;
-use Filament\Forms\Components\Builder\Block;
-use Filament\Forms\Components\Actions\Action;
 use Modules\UI\Filament\Forms\Components\RadioImage;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
-use Modules\Xot\Actions\View\GetViewsSiblingsAndSelfAction;
 use Modules\Xot\Actions\Filament\Block\GetViewBlocksOptionsByTypeAction;
+use Modules\Xot\Actions\View\GetViewsSiblingsAndSelfAction;
+use Modules\Xot\Datas\XotData;
 
 class Rating
 {
@@ -36,7 +36,7 @@ class Rating
         return Block::make($name)
             ->schema([
                 // Select::make('view')
-                    
+
                 //     ->options($options),
 
                 RadioImage::make('view')
@@ -73,7 +73,7 @@ class Rating
             ])
             // ->reorderableWithButtons()
             // ->addActionLabel('Add member')
-            // 
+            //
             // ->columns('form' === $context ? 2 : 1);
             ->columns(1);
     }
