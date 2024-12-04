@@ -53,8 +53,8 @@ class RatingResource extends XotBaseResource
     {
         return $table
             ->columns([
-                TextColumn::make('extra_attributes.type')->label('type'),
-                TextColumn::make('extra_attributes.anno')->label('anno'),
+                TextColumn::make('extra_attributes.type'),
+                TextColumn::make('extra_attributes.anno'),
                 TextColumn::make('title'),
                 TextColumn::make('rule')->badge(),
                 // TextColumn::make('is_readonly'),
