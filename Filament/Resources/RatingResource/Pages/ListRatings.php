@@ -24,15 +24,15 @@ class ListRatings extends XotBaseListRecords
     {
         return [
             TextColumn::make('id')
-                ->label('ID')
+                
                 ->sortable()
                 ->searchable(),
             TextColumn::make('title')
-                ->label('title')
+                
                 ->sortable()
                 ->searchable(),
             TextColumn::make('rule')
-                ->label('rule')
+                
                 ->badge(),
             IconColumn::make('is_disabled')
                 ->boolean(),
@@ -41,8 +41,8 @@ class ListRatings extends XotBaseListRecords
         ];
 
         return [
-            // TextColumn::make('extra_attributes.type')->label('type'),
-            // TextColumn::make('extra_attributes.anno')->label('anno'),
+            // TextColumn::make('extra_attributes.type'),
+            // TextColumn::make('extra_attributes.anno'),
 
             // TextColumn::make('is_readonly'),
             // TextColumn::make('is_disabled'),

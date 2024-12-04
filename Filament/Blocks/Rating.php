@@ -31,7 +31,7 @@ class Rating
         return Block::make($name)
             ->schema([
                 Select::make('_tpl')
-                    ->label('layout')
+                    
                     ->options($views),
 
                 Repeater::make('ratings')
@@ -65,7 +65,7 @@ class Rating
             ])
             // ->reorderableWithButtons()
             // ->addActionLabel('Add member')
-            // ->label('Link to article')
+            // 
             ->columns('form' === $context ? 2 : 1);
     }
 
