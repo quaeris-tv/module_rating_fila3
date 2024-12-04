@@ -1,5 +1,4 @@
-<?php 
-return array (
+<?php return array (
   'resource' => 
   array (
     'name' => 'Rating',
@@ -99,6 +98,10 @@ return array (
     array (
       'label' => 'rating',
     ),
+    'view' => 
+    array (
+      'label' => 'view',
+    ),
   ),
   'actions' => 
   array (
@@ -145,4 +148,4 @@ return array (
   array (
     'mandatory_data' => '{1} Dato obbligatorio non presente|{2} 2 Dati obbligatori non presenti|{3} 3 Dati obbligatori non presenti|[4,*] Vari dati obbligatori non presenti',
   ),
-);
+);
