@@ -73,9 +73,14 @@ class Rating
             ])
             // ->reorderableWithButtons()
             // ->addActionLabel('Add member')
+<<<<<<< HEAD
             // 
             // ->columns('form' === $context ? 2 : 1);
             ->columns(1);
+=======
+            //
+            ->columns('form' === $context ? 2 : 1);
+>>>>>>> 056839831a4f18710a998bb8cd58f34e1d4b435a
     }
 
     // // https://laraveldaily.com/post/filament-repeater-live-calculations-on-update
