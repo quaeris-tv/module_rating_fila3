@@ -40,16 +40,14 @@ class ListRatings extends XotBaseListRecords
                 ->boolean(),
         ];
 
-        return [
-            // TextColumn::make('extra_attributes.type'),
-            // TextColumn::make('extra_attributes.anno'),
+        // TextColumn::make('extra_attributes.type'),
+        // TextColumn::make('extra_attributes.anno'),
 
-            // TextColumn::make('is_readonly'),
-            // TextColumn::make('is_disabled'),
-            // ToggleColumn::make('is_readonly'),
+        // TextColumn::make('is_readonly'),
+        // TextColumn::make('is_disabled'),
+        // ToggleColumn::make('is_readonly'),
 
-            // TextColumn::make('color'),
-        ];
+        // TextColumn::make('color'),
     }
 
     public function getTableFilters(): array
