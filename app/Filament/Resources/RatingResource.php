@@ -28,10 +28,9 @@ class RatingResource extends XotBaseResource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    public static function form(Form $form): Form
+    public static function getFormSchema(): array
     {
-        return $form
-            ->schema([
+        return [
                 TextInput::make('extra_attributes.type'),
                 TextInput::make('extra_attributes.anno'),
                 TextInput::make('title')->autofocus()->required(),
@@ -45,7 +44,7 @@ class RatingResource extends XotBaseResource
                         Toggle::make('is_readonly'),
                     ])->columns(3),
                 RichEditor::make('txt')->columnSpanFull(),
-            ])->columns(3);
+            ];
     }
 
     /*
